@@ -16,9 +16,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
     try {
-      const secret = new TextEncoder().encode(
-        process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
-      );
+      const secret = new TextEncoder().encode(process.env.JWT_SECRET);
       await jwtVerify(token, secret);
       return NextResponse.next();
     } catch {

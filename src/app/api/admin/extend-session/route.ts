@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const secret = new TextEncoder().encode(
-    process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
+    process.env.JWT_SECRET
   );
 
   try {

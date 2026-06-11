@@ -3,7 +3,8 @@ import { locales, SITE_URL, hreflangMap } from "@/lib/site";
 import { getSlugs, getArticle, getTranslations } from "@/lib/content";
 
 const CLUSTERS = ["desierto", "marrakech", "atlas", "imperial", "essaouira"];
-const STATIC_PAGES = ["tours", "contact", "services", "gallery", "blog"];
+const CONVERSION_PAGES = ["tours", "contact", "services"];
+const CONTENT_PAGES = ["gallery", "blog"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -38,19 +39,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Static pages
-  for (const page of STATIC_PAGES) {
+  // Conversion pages (tours, contact, services) — high priority lead-gen pages
+  for (const page of CONVERSION_PAGES) {
     for (const locale of locales) {
       entries.push({
         url: `${SITE_URL}/${locale}/${page}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
+        priority: 0.8,
+      });
+    }
+  }
+
+  // Content pages (gallery, blog listing)
+  for (const page of CONTENT_PAGES) {
+    for (const locale of locales) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/${page}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
         priority: 0.7,
       });
     }
   }
 
-  // Articles
+  // Articles — satellite content, lower priority than cluster hubs
   for (const locale of locales) {
     for (const slug of getSlugs(locale)) {
       const article = getArticle(locale, slug);
@@ -67,7 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${SITE_URL}/${locale}/blog/${slug}`,
         lastModified: new Date(article.frontmatter.date),
         changeFrequency: "monthly",
-        priority: 0.8,
+        priority: 0.7,
         alternates: { languages },
       });
     }

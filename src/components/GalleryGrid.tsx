@@ -12,15 +12,17 @@ type Props = {
     filterMarrakech: string;
     filterAtlas: string;
     filterImperial: string;
+    filterEssaouira: string;
   };
 };
 
 const CATEGORIES: { key: GalleryCategory | "all"; labelKey: keyof Props["labels"] }[] = [
-  { key: "all",       labelKey: "filterAll" },
-  { key: "desierto",  labelKey: "filterDesierto" },
-  { key: "marrakech", labelKey: "filterMarrakech" },
-  { key: "atlas",     labelKey: "filterAtlas" },
-  { key: "imperial",  labelKey: "filterImperial" },
+  { key: "all",        labelKey: "filterAll" },
+  { key: "desierto",   labelKey: "filterDesierto" },
+  { key: "essaouira",  labelKey: "filterEssaouira" },
+  { key: "marrakech",  labelKey: "filterMarrakech" },
+  { key: "imperial",   labelKey: "filterImperial" },
+  { key: "atlas",      labelKey: "filterAtlas" },
 ];
 
 export function GalleryGrid({ photos, labels }: Props) {

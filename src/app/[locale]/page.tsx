@@ -77,6 +77,7 @@ export default async function HomePage({
         ctaHref={`/${locale}/desierto`}
         ctaLabel={t("heroCta")}
         trustBadge={t("heroTrust")}
+        poster="/photos/video-principale.jpeg"
       />
 
       <script
@@ -95,6 +96,21 @@ export default async function HomePage({
               },
               "query-input": "required name=search_term_string",
             },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: "Désert du Maroc — Dunaria Travel",
+            description: "Découvrez le Sahara marocain : dunes de Merzouga, nuits sous les étoiles et circuits 4x4.",
+            thumbnailUrl: `${SITE_URL}/photos/video-principale.jpeg`,
+            contentUrl: `${SITE_URL}/hero.mp4`,
+            uploadDate: "2025-01-01",
+            duration: "PT30S",
           }),
         }}
       />

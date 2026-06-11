@@ -59,7 +59,7 @@ export default async function GalleryPage({
     url: `${SITE_URL}/${locale}/gallery`,
     image: GALLERY_PHOTOS.map((p) => ({
       "@type": "ImageObject",
-      contentUrl: p.src,
+      contentUrl: p.src.startsWith("http") ? p.src : `${SITE_URL}${p.src}`,
       name: p.caption,
       description: p.caption,
       encodingFormat: "image/jpeg",
@@ -67,11 +67,12 @@ export default async function GalleryPage({
   };
 
   const labels = {
-    filterAll:       t("filterAll"),
-    filterDesierto:  t("filterDesierto"),
-    filterMarrakech: t("filterMarrakech"),
-    filterAtlas:     t("filterAtlas"),
-    filterImperial:  t("filterImperial"),
+    filterAll:        t("filterAll"),
+    filterDesierto:   t("filterDesierto"),
+    filterMarrakech:  t("filterMarrakech"),
+    filterAtlas:      t("filterAtlas"),
+    filterImperial:   t("filterImperial"),
+    filterEssaouira:  t("filterEssaouira"),
   };
 
   return (

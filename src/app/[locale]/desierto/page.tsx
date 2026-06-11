@@ -144,11 +144,28 @@ export default function DesiertoClusterPage({
     (a) => a.frontmatter.cluster === CLUSTER
   );
 
+  const touristDestinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Désert du Sahara marocain — Merzouga & Erg Chigaga",
+    url: `${SITE_URL}/${locale}/desierto`,
+    touristType: ["Adventure", "Nature", "Cultural"],
+    containsPlace: [
+      { "@type": "Place", name: "Merzouga", geo: { "@type": "GeoCoordinates", latitude: 31.0998, longitude: -3.9742 } },
+      { "@type": "Place", name: "Erg Chigaga", geo: { "@type": "GeoCoordinates", latitude: 30.7634, longitude: -4.2522 } },
+      { "@type": "Place", name: "Zagora", geo: { "@type": "GeoCoordinates", latitude: 30.3350, longitude: -5.8384 } },
+    ],
+  };
+
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
       />
       <FadeUp>
         <Link

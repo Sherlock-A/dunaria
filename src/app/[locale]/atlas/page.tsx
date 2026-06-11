@@ -146,11 +146,28 @@ export default function AtlasClusterPage({
     (a) => a.frontmatter.cluster === CLUSTER
   );
 
+  const touristDestinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Haut Atlas Marocain — Toubkal & Vallées",
+    url: `${SITE_URL}/${locale}/atlas`,
+    touristType: ["Adventure", "Trekking", "Nature"],
+    containsPlace: [
+      { "@type": "Place", name: "Jebel Toubkal", geo: { "@type": "GeoCoordinates", latitude: 31.0578, longitude: -7.9144 } },
+      { "@type": "Place", name: "Imlil", geo: { "@type": "GeoCoordinates", latitude: 31.137, longitude: -7.916 } },
+      { "@type": "Place", name: "Gorges du Dadès", geo: { "@type": "GeoCoordinates", latitude: 31.567, longitude: -5.988 } },
+    ],
+  };
+
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
       />
       <FadeUp>
         <>

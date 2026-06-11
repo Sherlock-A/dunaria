@@ -145,11 +145,28 @@ export default function MarrakechClusterPage({
     (a) => a.frontmatter.cluster === CLUSTER
   );
 
+  const touristDestinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Marrakech — La Ville Rouge, Maroc",
+    url: `${SITE_URL}/${locale}/marrakech`,
+    touristType: ["Cultural", "Shopping", "Gastronomy"],
+    containsPlace: [
+      { "@type": "Place", name: "Jemaa el-Fna", geo: { "@type": "GeoCoordinates", latitude: 31.6257, longitude: -7.9891 } },
+      { "@type": "Place", name: "Jardin Majorelle", geo: { "@type": "GeoCoordinates", latitude: 31.6406, longitude: -8.0006 } },
+      { "@type": "Place", name: "Médina de Marrakech", geo: { "@type": "GeoCoordinates", latitude: 31.6295, longitude: -7.9811 } },
+    ],
+  };
+
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
       />
       <FadeUp>
         <Link

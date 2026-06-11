@@ -1,5 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const rateMap = new Map<string, { count: number; reset: number }>();
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.reset) {
+    rateMap.set(ip, { count: 1, reset: now + 60_000 });
+    return false;
+  }
+  if (entry.count >= 5) return true;
+  entry.count++;
+  return false;
+}
+
 function tagsFromSource(source?: string): string[] {
   if (!source) return [];
   if (source.includes("desierto")) return ["desierto"];
@@ -21,6 +36,12 @@ function tagsFromSource(source?: string): string[] {
  * Set SUPABASE_URL + SUPABASE_SERVICE_KEY + BREVO_API_KEY + BREVO_LIST_ID in .env.local
  */
 export async function POST(req: NextRequest) {
+  // Rate limit: max 5 subscribe attempts per IP per minute
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ ok: true }); // silent to avoid enumeration
+  }
+
   let body: unknown;
   try {
     body = await req.json();
@@ -37,6 +58,7 @@ export async function POST(req: NextRequest) {
     lastName,
     phone,
     tourInterest,
+    _hp,
   } = body as {
     email?: string;
     locale?: string;
@@ -46,9 +68,13 @@ export async function POST(req: NextRequest) {
     lastName?: string;
     phone?: string;
     tourInterest?: string;
+    _hp?: string;
   };
 
-  if (!email || typeof email !== "string" || !email.includes("@")) {
+  // Honeypot — bots fill hidden fields
+  if (_hp) return NextResponse.json({ ok: true });
+
+  if (!email || typeof email !== "string" || !EMAIL_RE.test(email)) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 

@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const secret = new TextEncoder().encode(
-      process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
+      process.env.JWT_SECRET
     );
     const { payload } = await jwtVerify(token, secret);
     const expiresAt = (payload.exp ?? 0) * 1000; // ms timestamp

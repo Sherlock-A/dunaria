@@ -139,11 +139,27 @@ export default function EssaouiraClusterPage({
     (a) => a.frontmatter.cluster === CLUSTER
   );
 
+  const touristDestinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Essaouira — Cité des Alizés, Maroc",
+    url: `${SITE_URL}/${locale}/essaouira`,
+    touristType: ["Adventure", "Beach", "Cultural", "Food"],
+    containsPlace: [
+      { "@type": "Place", name: "Médina d'Essaouira", geo: { "@type": "GeoCoordinates", latitude: 31.5085, longitude: -9.7595 } },
+      { "@type": "Place", name: "Plage Sidi Kaouki", geo: { "@type": "GeoCoordinates", latitude: 31.387, longitude: -9.827 } },
+    ],
+  };
+
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
       />
       <FadeUp>
         <Link

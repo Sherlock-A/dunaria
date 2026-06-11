@@ -11,7 +11,7 @@ export async function DELETE(
 
   try {
     const secret = new TextEncoder().encode(
-      process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
+      process.env.JWT_SECRET
     );
     await jwtVerify(token, secret);
   } catch {

@@ -99,7 +99,8 @@
     "filterDesierto": "Desert",
     "filterMarrakech": "Marrakech",
     "filterAtlas": "Atlas",
-    "filterImperial": "Imperial"
+    "filterImperial": "Imperial",
+    "filterEssaouira": "Essaouira"
   },
   "services": {
     "metaTitle": "Our Morocco Travel Services | Dunaria",

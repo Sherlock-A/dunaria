@@ -17,6 +17,7 @@ export function EmailCapture({
 }) {
   const t = useTranslations("emailCapture");
   const [email, setEmail] = useState("");
+  const [hp, setHp] = useState("");
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +28,7 @@ export function EmailCapture({
       await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, locale, source }),
+        body: JSON.stringify({ email, locale, source, _hp: hp }),
       });
       setDone(true);
     } finally {
@@ -74,6 +75,8 @@ export function EmailCapture({
         <p className="mt-4 font-medium text-gold-600">{t("success")}</p>
       ) : (
         <>
+          {/* Honeypot — hidden from humans, bots fill it */}
+          <input type="text" name="_hp" value={hp} onChange={(e) => setHp(e.target.value)} className="sr-only" tabIndex={-1} aria-hidden="true" />
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <label className="sr-only" htmlFor="email-subscribe">
               {t("placeholder")}

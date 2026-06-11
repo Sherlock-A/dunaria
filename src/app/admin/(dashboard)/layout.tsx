@@ -12,7 +12,7 @@ async function isAuthenticated(): Promise<boolean> {
   if (!token) return false;
   try {
     const secret = new TextEncoder().encode(
-      process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
+      process.env.JWT_SECRET
     );
     await jwtVerify(token, secret);
     return true;

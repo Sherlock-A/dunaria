@@ -146,11 +146,28 @@ export default function ImperialClusterPage({
     (a) => a.frontmatter.cluster === CLUSTER
   );
 
+  const touristDestinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Villes Impériales du Maroc — Fès, Meknès, Chefchaouen",
+    url: `${SITE_URL}/${locale}/imperial`,
+    touristType: ["Cultural", "Historical", "Heritage"],
+    containsPlace: [
+      { "@type": "Place", name: "Médina de Fès", geo: { "@type": "GeoCoordinates", latitude: 34.0655, longitude: -4.9751 } },
+      { "@type": "Place", name: "Meknès", geo: { "@type": "GeoCoordinates", latitude: 33.895, longitude: -5.553 } },
+      { "@type": "Place", name: "Chefchaouen", geo: { "@type": "GeoCoordinates", latitude: 35.172, longitude: -5.268 } },
+    ],
+  };
+
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
       />
       <FadeUp>
         <>

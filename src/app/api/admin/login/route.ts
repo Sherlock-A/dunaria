@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
   }
 
   const secret = new TextEncoder().encode(
-    process.env.JWT_SECRET ?? "dev-secret-change-me-in-production"
+    process.env.JWT_SECRET
   );
   const token = await new SignJWT({ role: "admin" })
     .setProtectedHeader({ alg: "HS256" })
