@@ -41,6 +41,10 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
+  twitter: {
+    card: "summary_large_image",
+    site: "@dunaria",
+  },
   other: {
     "geo.region": "MA",
     "geo.placename": "Marrakech, Maroc",

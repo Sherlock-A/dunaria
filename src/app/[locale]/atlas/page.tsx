@@ -9,6 +9,7 @@ import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerContainer } from "@/components/motion/StaggerContainer";
 import { ArticleCard } from "@/components/ArticleCard";
 import { FAQSection, FAQItem } from "@/components/FAQSection";
+import { EmailCapture } from "@/components/EmailCapture";
 
 const CLUSTER = "atlas";
 
@@ -181,6 +182,10 @@ export default function AtlasClusterPage({
           ))}
         </StaggerContainer>
       )}
+
+      <div className="py-4">
+        <EmailCapture locale={locale} source="atlas" />
+      </div>
 
       <FAQSection items={faq.items} heading={faq.heading} />
     </div>

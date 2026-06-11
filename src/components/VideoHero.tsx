@@ -6,9 +6,12 @@ import { heroTextVariants } from "@/lib/motion";
 interface VideoHeroProps {
   title: string;
   subtitle: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  trustBadge?: string;
 }
 
-export function VideoHero({ title, subtitle }: VideoHeroProps) {
+export function VideoHero({ title, subtitle, ctaHref, ctaLabel, trustBadge }: VideoHeroProps) {
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -62,6 +65,30 @@ export function VideoHero({ title, subtitle }: VideoHeroProps) {
         >
           {subtitle}
         </motion.p>
+
+        {(ctaHref || trustBadge) && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="mt-8 flex flex-col items-center gap-4"
+          >
+            {ctaHref && ctaLabel && (
+              <a
+                href={ctaHref}
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-mono text-sm font-semibold text-night transition-all hover:bg-gold-600 hover:scale-[1.03] active:scale-[0.98]"
+              >
+                {ctaLabel}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            )}
+            {trustBadge && (
+              <p className="font-mono text-xs text-white/40">{trustBadge}</p>
+            )}
+          </motion.div>
+        )}
       </motion.div>
 
       {/* Scroll indicator — fades on scroll */}

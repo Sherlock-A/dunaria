@@ -1,6 +1,8 @@
 // Central site config.
 export const SITE_URL = "https://dunaria.com";
 
+export const CONTACT_EMAIL = "info@dunaria.com";
+
 export const SITE_NAME = "Dunaria";
 
 export const locales = ["es", "en", "fr"] as const;

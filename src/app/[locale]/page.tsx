@@ -9,6 +9,7 @@ import { MarqueeTicker } from "@/components/MarqueeTicker";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Testimonials } from "@/components/Testimonials";
 import { TripStartCta } from "@/components/TripStartCta";
+import { FAQSection } from "@/components/FAQSection";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerContainer } from "@/components/motion/StaggerContainer";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -70,7 +71,13 @@ export default async function HomePage({
     <>
       {/* Précharge la vidéo hero dès le HTML — uniquement sur la homepage */}
       <link rel="preload" href="/hero.mp4" as="video" type="video/mp4" />
-      <VideoHero title={t("heroTitle")} subtitle={t("heroSubtitle")} />
+      <VideoHero
+        title={t("heroTitle")}
+        subtitle={t("heroSubtitle")}
+        ctaHref={`/${locale}/desierto`}
+        ctaLabel={t("heroCta")}
+        trustBadge={t("heroTrust")}
+      />
 
       {/* Marquee ticker */}
       <MarqueeTicker locale={locale} />
@@ -136,6 +143,18 @@ export default async function HomePage({
 
         <section className="pb-14 -mx-4">
           <TripStartCta locale={locale} />
+        </section>
+
+        <section className="pb-14">
+          <FAQSection
+            heading={t("faqHeading")}
+            items={[
+              { question: t("faq1q"), answer: t("faq1a") },
+              { question: t("faq2q"), answer: t("faq2a") },
+              { question: t("faq3q"), answer: t("faq3a") },
+              { question: t("faq4q"), answer: t("faq4a") },
+            ]}
+          />
         </section>
 
         <section className="pb-20">

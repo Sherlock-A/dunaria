@@ -8,7 +8,8 @@
     "cluster_desierto": "Desert",
     "cluster_marrakech": "Marrakech",
     "cluster_atlas": "Atlas",
-    "cluster_imperial": "Imperial Cities"
+    "cluster_imperial": "Imperial Cities",
+    "cluster_essaouira": "Essaouira"
   },
   "tours": {
     "metaTitle": "Private Morocco Tours | Dunaria",
@@ -63,7 +64,18 @@
     "latestArticles": "Latest articles",
     "noArticles": "First guides coming soon.",
     "viewAllArticles": "See all articles →",
-    "destinationsTitle": "Our destinations"
+    "destinationsTitle": "Our destinations",
+    "heroCta": "Discover itineraries",
+    "heroTrust": "★★★★★ 4.9 · 500+ travellers",
+    "faqHeading": "Frequently asked questions",
+    "faq1q": "When is the best time to visit the Moroccan desert?",
+    "faq1a": "Spring (March-May) and autumn (September-November) are the best seasons. Temperatures are comfortable (20-30°C) and landscapes are spectacular. Avoid July and August when heat exceeds 45°C.",
+    "faq2q": "How much does a Sahara excursion cost?",
+    "faq2a": "A private 3-day circuit from Marrakech costs between €150-300 per person. The price includes 4×4 transport, guide, camp accommodation and half board. Luxury camps cost more but the experience is worth it.",
+    "faq3q": "Is it safe to travel to Morocco?",
+    "faq3a": "Yes, Morocco is one of the safest countries in North Africa. Main cities and tourist routes are very safe. We recommend respecting local customs and hiring a local guide for remote desert areas.",
+    "faq4q": "How to book a tour or get more information?",
+    "faq4a": "You can contact us directly by WhatsApp or email. We reply within 24 hours with availability, prices and a personalised itinerary based on your dates and preferences."
   },
   "footer": {
     "tagline": "Made for desert travelers"

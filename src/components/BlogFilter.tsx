@@ -12,11 +12,19 @@ interface BlogFilterProps {
 
 export function BlogFilter({ articles, labelAll, labelClusterMap }: BlogFilterProps) {
   const [activeCluster, setActiveCluster] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const clusters = [...new Set(articles.map((a) => a.frontmatter.cluster))];
-  const filtered = activeCluster
-    ? articles.filter((a) => a.frontmatter.cluster === activeCluster)
-    : articles;
+  const filtered = articles
+    .filter((a) => !activeCluster || a.frontmatter.cluster === activeCluster)
+    .filter((a) => {
+      if (!searchQuery.trim()) return true;
+      const q = searchQuery.toLowerCase();
+      return (
+        a.frontmatter.title.toLowerCase().includes(q) ||
+        a.frontmatter.description.toLowerCase().includes(q)
+      );
+    });
 
   const clusterCounts = clusters.reduce<Record<string, number>>((acc, c) => {
     acc[c] = articles.filter((a) => a.frontmatter.cluster === c).length;
@@ -25,6 +33,23 @@ export function BlogFilter({ articles, labelAll, labelClusterMap }: BlogFilterPr
 
   return (
     <div className="space-y-8">
+      <div className="relative">
+        <svg
+          className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-night-600/40"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+        </svg>
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder={labelClusterMap["__search__"] ?? "Rechercher un article…"}
+          className="w-full rounded-xl border border-sand-300 bg-white pl-10 pr-4 py-2.5 text-sm text-night outline-none focus:border-gold transition-colors"
+        />
+      </div>
       {clusters.length > 1 && (
         <div className="flex flex-wrap gap-2">
           <button

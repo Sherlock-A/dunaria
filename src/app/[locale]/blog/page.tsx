@@ -70,6 +70,7 @@ export default async function BlogPage({
           marrakech: t("cluster_marrakech"),
           atlas: t("cluster_atlas"),
           imperial: t("cluster_imperial"),
+          essaouira: t("cluster_essaouira"),
         }}
       />
     </div>

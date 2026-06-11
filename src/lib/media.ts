@@ -8,6 +8,7 @@ export const CLUSTER_HERO: Record<string, string> = {
   marrakech: getPexelsUrl(3880961),
   atlas: getPexelsUrl(2246874),
   imperial: getPexelsUrl(3889742),
+  essaouira: getPexelsUrl(3601426),
 };
 
 export type GalleryCategory = "desierto" | "marrakech" | "atlas" | "imperial";

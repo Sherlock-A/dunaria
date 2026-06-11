@@ -8,7 +8,8 @@
     "cluster_desierto": "Desierto",
     "cluster_marrakech": "Marrakech",
     "cluster_atlas": "Atlas",
-    "cluster_imperial": "Ciudades Imperiales"
+    "cluster_imperial": "Ciudades Imperiales",
+    "cluster_essaouira": "Essaouira"
   },
   "tours": {
     "metaTitle": "Tours privados por Marruecos | Dunaria",
@@ -63,7 +64,18 @@
     "latestArticles": "Últimos artículos",
     "noArticles": "Pronto publicaremos las primeras guías.",
     "viewAllArticles": "Ver todos los artículos →",
-    "destinationsTitle": "Nuestros destinos"
+    "destinationsTitle": "Nuestros destinos",
+    "heroCta": "Descubrir los itinerarios",
+    "heroTrust": "★★★★★ 4.9 · Más de 500 viajeros",
+    "faqHeading": "Preguntas frecuentes",
+    "faq1q": "¿Cuándo es la mejor época para ir al desierto de Marruecos?",
+    "faq1a": "Primavera (marzo-mayo) y otoño (septiembre-noviembre) son las mejores épocas. Las temperaturas son agradables (20-30°C) y los paisajes son espectaculares. Evita julio y agosto cuando el calor supera los 45°C.",
+    "faq2q": "¿Cuánto cuesta una excursión al Sáhara?",
+    "faq2a": "Un circuito privado de 3 días desde Marrakech cuesta entre 150-300€ por persona. El precio incluye transporte en 4×4, guía, alojamiento en camp y media pensión. Los luxury camps cuestan más pero la experiencia merece la pena.",
+    "faq3q": "¿Es seguro viajar a Marruecos?",
+    "faq3a": "Sí, Marruecos es uno de los países más seguros del Norte de África. Las principales ciudades y rutas turísticas son muy seguras. Recomendamos respetar las costumbres locales y contratar un guía local para zonas remotas del desierto.",
+    "faq4q": "¿Cómo reservar un tour o pedir más información?",
+    "faq4a": "Puedes contactarnos directamente por WhatsApp o email. Respondemos en menos de 24 horas con disponibilidad, precios y un itinerario personalizado según tus fechas y preferencias."
   },
   "footer": {
     "tagline": "Hecho para viajeros del desierto"

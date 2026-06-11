@@ -10,6 +10,7 @@ const CLUSTER_BADGE: Record<string, string> = {
   marrakech: "bg-rose-100 text-rose-800",
   atlas: "bg-sky-100 text-sky-800",
   imperial: "bg-purple-100 text-purple-800",
+  essaouira: "bg-teal-100 text-teal-800",
 };
 
 const CLUSTER_BORDER: Record<string, string> = {
@@ -17,6 +18,7 @@ const CLUSTER_BORDER: Record<string, string> = {
   marrakech: "border-l-rose-400",
   atlas: "border-l-sky-400",
   imperial: "border-l-purple-400",
+  essaouira: "border-l-teal-400",
 };
 
 const LOCALE_MAP: Record<string, string> = {

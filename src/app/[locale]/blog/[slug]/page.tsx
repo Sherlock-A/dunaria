@@ -75,6 +75,12 @@ export async function generateMetadata({
       publishedTime: frontmatter.date,
       images: frontmatter.image ? [{ url: frontmatter.image }] : undefined,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: frontmatter.title,
+      description: frontmatter.description,
+      images: frontmatter.image ? [frontmatter.image] : undefined,
+    },
   };
 }
 
@@ -123,6 +129,8 @@ export default function ArticlePage({
     headline: frontmatter.title,
     description: frontmatter.description,
     datePublished: frontmatter.date,
+    dateModified: frontmatter.date,
+    wordCount: Math.round(article.readingMinutes * 200),
     author: {
       "@type": "Organization",
       name: frontmatter.author || SITE_NAME,

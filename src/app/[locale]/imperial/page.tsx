@@ -9,6 +9,7 @@ import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerContainer } from "@/components/motion/StaggerContainer";
 import { ArticleCard } from "@/components/ArticleCard";
 import { FAQSection, FAQItem } from "@/components/FAQSection";
+import { EmailCapture } from "@/components/EmailCapture";
 
 const CLUSTER = "imperial";
 
@@ -181,6 +182,10 @@ export default function ImperialClusterPage({
           ))}
         </StaggerContainer>
       )}
+
+      <div className="py-4">
+        <EmailCapture locale={locale} source="imperial" />
+      </div>
 
       <FAQSection items={faq.items} heading={faq.heading} />
     </div>

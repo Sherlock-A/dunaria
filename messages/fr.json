@@ -8,7 +8,8 @@
     "cluster_desierto": "Désert",
     "cluster_marrakech": "Marrakech",
     "cluster_atlas": "Atlas",
-    "cluster_imperial": "Villes Impériales"
+    "cluster_imperial": "Villes Impériales",
+    "cluster_essaouira": "Essaouira"
   },
   "tours": {
     "metaTitle": "Tours privés au Maroc | Dunaria",
@@ -63,7 +64,18 @@
     "latestArticles": "Derniers articles",
     "noArticles": "Premiers guides à venir bientôt.",
     "viewAllArticles": "Voir tous les articles →",
-    "destinationsTitle": "Nos destinations"
+    "destinationsTitle": "Nos destinations",
+    "heroCta": "Découvrir les itinéraires",
+    "heroTrust": "★★★★★ 4.9 · Plus de 500 voyageurs",
+    "faqHeading": "Questions fréquentes",
+    "faq1q": "Quelle est la meilleure période pour visiter le désert marocain ?",
+    "faq1a": "Le printemps (mars-mai) et l'automne (septembre-novembre) sont les meilleures saisons. Les températures sont agréables (20-30°C) et les paysages sont spectaculaires. Évitez juillet et août où la chaleur dépasse 45°C.",
+    "faq2q": "Combien coûte une excursion au Sahara ?",
+    "faq2a": "Un circuit privé de 3 jours depuis Marrakech coûte entre 150-300€ par personne. Le prix comprend le transport en 4×4, le guide, l'hébergement en camp et la demi-pension. Les luxury camps coûtent plus cher mais l'expérience vaut le détour.",
+    "faq3q": "Est-il sûr de voyager au Maroc ?",
+    "faq3a": "Oui, le Maroc est l'un des pays les plus sûrs d'Afrique du Nord. Les principales villes et les circuits touristiques sont très sûrs. Nous recommandons de respecter les coutumes locales et de faire appel à un guide local pour les zones reculées du désert.",
+    "faq4q": "Comment réserver un tour ou obtenir plus d'informations ?",
+    "faq4a": "Vous pouvez nous contacter directement par WhatsApp ou email. Nous répondons en moins de 24h avec la disponibilité, les tarifs et un itinéraire personnalisé selon vos dates et préférences."
   },
   "footer": {
     "tagline": "Fait pour les voyageurs du désert"
