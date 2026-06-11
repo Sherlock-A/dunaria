@@ -2,7 +2,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { heroTextVariants } from "@/lib/motion";
-import { CLUSTER_HERO } from "@/lib/media";
 
 interface VideoHeroProps {
   title: string;
@@ -11,6 +10,7 @@ interface VideoHeroProps {
 
 export function VideoHero({ title, subtitle }: VideoHeroProps) {
   const ref = useRef<HTMLElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -19,19 +19,19 @@ export function VideoHero({ title, subtitle }: VideoHeroProps) {
   const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const indicatorOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[600px] w-full overflow-hidden"
+      className="relative h-screen min-h-[600px] w-full overflow-hidden bg-night"
     >
       <video
         autoPlay
         loop
         muted
         playsInline
-        poster={CLUSTER_HERO.desierto}
+        preload="auto"
         aria-hidden="true"
-        preload="none"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/hero.mp4" type="video/mp4" />

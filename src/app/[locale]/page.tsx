@@ -68,6 +68,8 @@ export default async function HomePage({
 
   return (
     <>
+      {/* Précharge la vidéo hero dès le HTML — uniquement sur la homepage */}
+      <link rel="preload" href="/hero.mp4" as="video" type="video/mp4" />
       <VideoHero title={t("heroTitle")} subtitle={t("heroSubtitle")} />
 
       {/* Marquee ticker */}
