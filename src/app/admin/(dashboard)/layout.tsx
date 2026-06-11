@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { jwtVerify } from "jose";
 import { AdminNav } from "@/components/admin/AdminNav";
+import { LogoutButton } from "@/components/admin/LogoutButton";
+import { SessionCountdown } from "@/components/admin/SessionCountdown";
 
 async function isAuthenticated(): Promise<boolean> {
   const cookieStore = cookies();
@@ -32,14 +34,10 @@ export default async function DashboardLayout({ children }: { children: ReactNod
             <AdminNav />
           </div>
 
-          <form action="/api/admin/logout" method="POST" className="shrink-0">
-            <button
-              type="submit"
-              className="rounded-lg border border-white/10 px-3 py-1.5 font-mono text-xs text-white/40 hover:text-white hover:border-white/30 transition-colors"
-            >
-              Déconnexion
-            </button>
-          </form>
+          <div className="flex items-center gap-3 shrink-0">
+            <SessionCountdown />
+            <LogoutButton />
+          </div>
         </div>
       </header>
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import { createClient } from "@supabase/supabase-js";
+import { logAuditEvent } from "@/lib/adminAudit";
 
 export async function GET(req: NextRequest) {
   // Verify JWT cookie — same logic as admin middleware
@@ -46,6 +47,8 @@ export async function GET(req: NextRequest) {
     .join("\n");
 
   const today = new Date().toISOString().slice(0, 10);
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? undefined;
+  await logAuditEvent("export", ip, { rowCount: rows.length });
 
   return new NextResponse(header + body, {
     headers: {

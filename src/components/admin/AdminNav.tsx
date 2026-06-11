@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { href: "/admin/analytics", label: "Analytics" },
   { href: "/admin/traffic", label: "Trafic" },
   { href: "/admin/contacts", label: "Contacts" },
+  { href: "/admin/activity", label: "Activité" },
 ];
 
 export function AdminNav() {

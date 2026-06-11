@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
+import { logAuditEvent } from "@/lib/adminAudit";
 
 export async function POST(req: NextRequest) {
   let body: unknown;
@@ -33,6 +34,9 @@ export async function POST(req: NextRequest) {
     .setIssuedAt()
     .setExpirationTime("8h")
     .sign(secret);
+
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? undefined;
+  await logAuditEvent("login", ip, { username });
 
   const res = NextResponse.json({ ok: true });
   res.cookies.set("admin_token", token, {
