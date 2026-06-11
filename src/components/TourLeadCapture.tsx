@@ -23,18 +23,34 @@ export function TourLeadCapture({
     phone: "",
     tourInterest: tourName ?? "",
   });
+  const [touched1, setTouched1] = useState({ firstName: false, email: false });
+  const [touched2, setTouched2] = useState({ lastName: false, phone: false });
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const validStep1 =
-    step1.firstName.trim().length > 0 && step1.email.includes("@");
+  const validFirstName = step1.firstName.trim().length > 0;
+  const validEmail = step1.email.includes("@");
+  const validStep1 = validFirstName && validEmail;
 
-  const validStep2 =
-    step2.lastName.trim().length > 0 && step2.phone.trim().length > 0;
+  const validLastName = step2.lastName.trim().length > 0;
+  const validPhone = step2.phone.trim().length > 0;
+  const validStep2 = validLastName && validPhone;
+
+  function fieldCls(touched: boolean, valid: boolean) {
+    return `w-full rounded-lg border ${
+      touched && !valid
+        ? "border-red-400 bg-red-50/30"
+        : "border-sand-400 bg-white"
+    } px-4 py-2.5 text-night outline-none placeholder:text-night-600/40 focus:border-gold`;
+  }
 
   function nextStep() {
-    if (validStep1) setStep(2);
+    if (validStep1) {
+      setStep(2);
+    } else {
+      setTouched1({ firstName: true, email: true });
+    }
   }
 
   async function submit() {
@@ -77,9 +93,6 @@ export function TourLeadCapture({
       </div>
     );
   }
-
-  const inputCls =
-    "w-full rounded-lg border border-sand-400 bg-white px-4 py-2.5 text-night outline-none placeholder:text-night-600/40 focus:border-gold";
 
   return (
     <div
@@ -127,7 +140,8 @@ export function TourLeadCapture({
               onChange={(e) =>
                 setStep1((p) => ({ ...p, firstName: e.target.value }))
               }
-              className={inputCls}
+              onBlur={() => setTouched1((p) => ({ ...p, firstName: true }))}
+              className={fieldCls(touched1.firstName, validFirstName)}
               autoComplete="given-name"
             />
             <input
@@ -137,7 +151,8 @@ export function TourLeadCapture({
               onChange={(e) =>
                 setStep1((p) => ({ ...p, email: e.target.value }))
               }
-              className={inputCls}
+              onBlur={() => setTouched1((p) => ({ ...p, email: true }))}
+              className={fieldCls(touched1.email, validEmail)}
               autoComplete="email"
               onKeyDown={(e) => e.key === "Enter" && nextStep()}
             />
@@ -168,7 +183,8 @@ export function TourLeadCapture({
                 onChange={(e) =>
                   setStep2((p) => ({ ...p, lastName: e.target.value }))
                 }
-                className={inputCls}
+                onBlur={() => setTouched2((p) => ({ ...p, lastName: true }))}
+                className={fieldCls(touched2.lastName, validLastName)}
                 autoComplete="family-name"
               />
               <input
@@ -178,7 +194,8 @@ export function TourLeadCapture({
                 onChange={(e) =>
                   setStep2((p) => ({ ...p, phone: e.target.value }))
                 }
-                className={inputCls}
+                onBlur={() => setTouched2((p) => ({ ...p, phone: true }))}
+                className={fieldCls(touched2.phone, validPhone)}
                 autoComplete="tel"
               />
             </div>
@@ -189,7 +206,7 @@ export function TourLeadCapture({
               onChange={(e) =>
                 setStep2((p) => ({ ...p, tourInterest: e.target.value }))
               }
-              className={inputCls}
+              className="w-full rounded-lg border border-sand-400 bg-white px-4 py-2.5 text-night outline-none placeholder:text-night-600/40 focus:border-gold"
             />
 
             {error && (
@@ -206,8 +223,14 @@ export function TourLeadCapture({
               <div className="flex flex-wrap items-center gap-4">
                 <p className="text-xs text-night-600/50">{t("privacy")}</p>
                 <button
-                  onClick={submit}
-                  disabled={loading || !validStep2}
+                  onClick={() => {
+                    if (!validStep2) {
+                      setTouched2({ lastName: true, phone: true });
+                    } else {
+                      submit();
+                    }
+                  }}
+                  disabled={loading}
                   className="shrink-0 rounded-lg bg-gold px-6 py-2.5 font-medium text-night transition-colors hover:bg-gold-600 disabled:opacity-50"
                 >
                   {loading ? "…" : t("button")}

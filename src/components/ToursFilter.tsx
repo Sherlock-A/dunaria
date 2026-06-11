@@ -113,10 +113,14 @@ export function ToursFilter({
       <div className="flex flex-wrap gap-2">
         {(["all", ...departures] as (Departure | "all")[]).map((dep) => {
           const isActive = active === dep;
+          const count =
+            dep === "all"
+              ? tours.length
+              : tours.filter((t) => t.departure === dep).length;
           const label =
             dep === "all"
-              ? labels.all
-              : `${labels.from} ${depName(dep as Departure, labels)}`;
+              ? `${labels.all} (${count})`
+              : `${labels.from} ${depName(dep as Departure, labels)} (${count})`;
           return (
             <button
               key={dep}
