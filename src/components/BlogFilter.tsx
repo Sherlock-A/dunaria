@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import type { Article } from "@/lib/content";
 import { StaggerContainer } from "@/components/motion/StaggerContainer";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -8,11 +9,42 @@ interface BlogFilterProps {
   articles: Article[];
   labelAll: string;
   labelClusterMap: Record<string, string>;
+  searchPlaceholder?: string;
 }
 
-export function BlogFilter({ articles, labelAll, labelClusterMap }: BlogFilterProps) {
-  const [activeCluster, setActiveCluster] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
+export function BlogFilter({ articles, labelAll, labelClusterMap, searchPlaceholder }: BlogFilterProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [activeCluster, setActiveCluster] = useState<string | null>(
+    searchParams.get("cluster")
+  );
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") ?? "");
+
+  // Sync state when URL changes (browser back/forward)
+  useEffect(() => {
+    setActiveCluster(searchParams.get("cluster"));
+    setSearchQuery(searchParams.get("q") ?? "");
+  }, [searchParams]);
+
+  function updateUrl(cluster: string | null, q: string) {
+    const params = new URLSearchParams();
+    if (cluster) params.set("cluster", cluster);
+    if (q.trim()) params.set("q", q.trim());
+    const qs = params.toString();
+    router.replace(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
+  }
+
+  function handleCluster(c: string | null) {
+    setActiveCluster(c);
+    updateUrl(c, searchQuery);
+  }
+
+  function handleSearch(q: string) {
+    setSearchQuery(q);
+    updateUrl(activeCluster, q);
+  }
 
   const clusters = [...new Set(articles.map((a) => a.frontmatter.cluster))];
   const filtered = articles
@@ -45,15 +77,15 @@ export function BlogFilter({ articles, labelAll, labelClusterMap }: BlogFilterPr
         <input
           type="search"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder={labelClusterMap["__search__"] ?? "Rechercher un article…"}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder={searchPlaceholder ?? "Rechercher un article…"}
           className="w-full rounded-xl border border-sand-300 bg-white pl-10 pr-4 py-2.5 text-sm text-night outline-none focus:border-gold transition-colors"
         />
       </div>
       {clusters.length > 1 && (
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={() => setActiveCluster(null)}
+            onClick={() => handleCluster(null)}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
               activeCluster === null
                 ? "bg-gold text-night"
@@ -65,7 +97,7 @@ export function BlogFilter({ articles, labelAll, labelClusterMap }: BlogFilterPr
           {clusters.map((c) => (
             <button
               key={c}
-              onClick={() => setActiveCluster(c)}
+              onClick={() => handleCluster(c)}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 activeCluster === c
                   ? "bg-gold text-night"

@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { DeleteContactButton } from "@/components/admin/DeleteContactButton";
 
 const PAGE_SIZE = 50;
 
@@ -121,6 +122,7 @@ export default async function ContactsPage({
                 <th className="px-4 py-3 text-left font-mono text-[10px] uppercase tracking-[0.15em] text-white/30">Source</th>
                 <th className="px-4 py-3 text-left font-mono text-[10px] uppercase tracking-[0.15em] text-white/30">Tags</th>
                 <th className="px-4 py-3 text-left font-mono text-[10px] uppercase tracking-[0.15em] text-white/30">Date</th>
+                <th className="px-4 py-3 text-left font-mono text-[10px] uppercase tracking-[0.15em] text-white/30 w-10"></th>
               </tr>
             </thead>
             <tbody>
@@ -144,6 +146,9 @@ export default async function ContactsPage({
                   </td>
                   <td className="px-4 py-3 text-white/30 font-mono text-xs">
                     {new Date(c.created_at).toLocaleDateString("fr-FR")}
+                  </td>
+                  <td className="px-4 py-3">
+                    <DeleteContactButton email={c.email} />
                   </td>
                 </tr>
               ))}

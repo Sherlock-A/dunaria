@@ -17,6 +17,7 @@ import {
   getTranslations,
   getAllArticles,
 } from "@/lib/content";
+import { CLUSTER_HERO } from "@/lib/media";
 import Image from "next/image";
 import { EmailCapture } from "@/components/EmailCapture";
 import { FadeUp } from "@/components/motion/FadeUp";
@@ -73,13 +74,19 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       type: "article",
       publishedTime: frontmatter.date,
-      images: frontmatter.image ? [{ url: frontmatter.image }] : undefined,
+      images: (() => {
+        const img = frontmatter.image ?? CLUSTER_HERO[frontmatter.cluster];
+        return img ? [{ url: img, width: 800, height: 600 }] : undefined;
+      })(),
     },
     twitter: {
       card: "summary_large_image",
       title: frontmatter.title,
       description: frontmatter.description,
-      images: frontmatter.image ? [frontmatter.image] : undefined,
+      images: (() => {
+        const img = frontmatter.image ?? CLUSTER_HERO[frontmatter.cluster];
+        return img ? [img] : undefined;
+      })(),
     },
   };
 }
@@ -143,7 +150,10 @@ export default function ArticlePage({
       "@type": "WebPage",
       "@id": `${SITE_URL}/${locale}/blog/${slug}`,
     },
-    image: frontmatter.image ? [frontmatter.image] : undefined,
+    image: (() => {
+      const img = frontmatter.image ?? CLUSTER_HERO[frontmatter.cluster];
+      return img ? [{ "@type": "ImageObject", url: img, width: 800, height: 600 }] : undefined;
+    })(),
   };
 
   const clusterLabel: Record<string, Record<string, string>> = {
@@ -187,6 +197,7 @@ export default function ArticlePage({
   };
 
   const labels = prevNextLabels[locale];
+  const heroImage = frontmatter.image ?? CLUSTER_HERO[frontmatter.cluster] ?? null;
 
   return (
     <>
@@ -222,11 +233,11 @@ export default function ArticlePage({
             </header>
           </FadeUp>
 
-          {frontmatter.image && (
+          {heroImage && (
             <FadeUp>
               <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
                 <Image
-                  src={frontmatter.image}
+                  src={heroImage}
                   alt={frontmatter.title}
                   fill
                   className="object-cover"

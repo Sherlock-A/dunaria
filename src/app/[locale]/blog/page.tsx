@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Locale, locales, SITE_URL, SITE_NAME, hreflangMap } from "@/lib/site";
 import { getAllArticles } from "@/lib/content";
+import { Suspense } from "react";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { BlogFilter } from "@/components/BlogFilter";
 
@@ -62,17 +63,20 @@ export default async function BlogPage({
         </header>
       </FadeUp>
 
-      <BlogFilter
-        articles={articles}
-        labelAll={t("all")}
-        labelClusterMap={{
-          desierto: t("cluster_desierto"),
-          marrakech: t("cluster_marrakech"),
-          atlas: t("cluster_atlas"),
-          imperial: t("cluster_imperial"),
-          essaouira: t("cluster_essaouira"),
-        }}
-      />
+      <Suspense fallback={null}>
+        <BlogFilter
+          articles={articles}
+          labelAll={t("all")}
+          searchPlaceholder={t("search")}
+          labelClusterMap={{
+            desierto: t("cluster_desierto"),
+            marrakech: t("cluster_marrakech"),
+            atlas: t("cluster_atlas"),
+            imperial: t("cluster_imperial"),
+            essaouira: t("cluster_essaouira"),
+          }}
+        />
+      </Suspense>
     </div>
   );
 }

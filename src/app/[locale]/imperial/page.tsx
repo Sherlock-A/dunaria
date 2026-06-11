@@ -71,6 +71,13 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}/${CLUSTER}`,
       siteName: SITE_NAME,
       type: "website",
+      images: [{ url: CLUSTER_HERO[CLUSTER], width: 800, height: 600 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [CLUSTER_HERO[CLUSTER]],
     },
   };
 }
