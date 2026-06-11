@@ -1,13 +1,8 @@
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { jwtVerify } from "jose";
 import { AdminNav } from "@/components/admin/AdminNav";
-
-export const metadata: Metadata = {
-  robots: { index: false, follow: false },
-};
 
 async function isAuthenticated(): Promise<boolean> {
   const cookieStore = cookies();
