@@ -27,7 +27,7 @@ export const tours: Tour[] = [
     tags: ["Aït Ben Haddou", "Ouarzazate", "Essaouira", "Kasbahs"],
     name: "3 días: Marrakech → Aït Ben Haddou → Essaouira",
     description: "De las kasbahs más fotogénicas del desierto a la ciudad azul del Atlántico: un recorrido de cine.",
-    image: "/photos/essaouira-mer.jpeg",
+    image: "/photos/ait-ben-haddou.jpeg",
     itinerary: [
       {
         day: 1,
@@ -53,7 +53,7 @@ export const tours: Tour[] = [
     tags: ["Zagora", "Vallée Drâa", "Haïmas", "Desierto"],
     name: "4 días: Desierto de Zagora y Valle del Drâa",
     description: "El gran desierto del sur: dunas de Zagora, noche en haïmas bereberes y la mítica ruta de las kasbahs.",
-    image: "/photos/desierto-dune.jpeg",
+    image: "/photos/desert-camp-3.jpeg",
     itinerary: [
       {
         day: 1,
@@ -84,7 +84,7 @@ export const tours: Tour[] = [
     tags: ["Skoura", "Gorges Dadès", "Erg Chebbi", "Haïmas"],
     name: "5 días: Kasbahs, Todra y Erg Chebbi",
     description: "El recorrido clásico del sur: palmeral de Skoura, gargantas rojas del Dadès, noche bajo las estrellas en las dunas de Merzouga.",
-    image: "/photos/desierto-principal.jpeg",
+    image: "/photos/desert-camp-1.jpeg",
     itinerary: [
       {
         day: 1,
@@ -121,7 +121,7 @@ export const tours: Tour[] = [
     tags: ["Ruta Kasbahs", "Gorges Todra", "Erg Chebbi", "Drâa", "Haïmas"],
     name: "7 días: Gran circuito del sur de Marruecos",
     description: "El recorrido completo del sur: kasbahs, gargantas, desierto de Merzouga, noche en haïmas y el mítico valle del Drâa.",
-    image: "/photos/desierto-hero.jpeg",
+    image: "/photos/group-desert.jpeg",
     itinerary: [
       {
         day: 1,
@@ -167,7 +167,7 @@ export const tours: Tour[] = [
     tags: ["Skoura", "Gorges Todra", "Erg Chebbi", "4x4", "Khamlia", "Haïmas"],
     name: "8 días: Desierto completo — Kasbahs, Erg Chebbi y Valle Drâa",
     description: "La experiencia más completa del sur: palmeral, gargantas, desierto en 4x4, noche en haïmas, música Gnaoua en Khamlia y ruta de las kasbahs.",
-    image: "/photos/desierto-principal.jpeg",
+    image: "/photos/toyota-desert.jpeg",
     itinerary: [
       {
         day: 1,
@@ -218,7 +218,7 @@ export const tours: Tour[] = [
     tags: ["Atlas", "Gorges Todra", "Erg Chebbi", "Drâa", "Essaouira"],
     name: "10 días: Marruecos completo desde Marrakech",
     description: "Atlas, desierto de Merzouga, ruta de las kasbahs y costa de Essaouira: el circuito más rico del sur.",
-    image: "/photos/desierto-hero.jpeg",
+    image: "/photos/quad-desert.jpeg",
     itinerary: [
       { day: 1,  title: "Marrakech → Vallée de l'Ourika",       route: "Valle de Ourika y cascadas de Setti Fatma, primera incursión en el Atlas." },
       { day: 2,  title: "Marrakech → Imlil → Skoura",           route: "Pueblo de Imlil (base del Toubkal), ruta de las kasbahs, Skoura." },
@@ -285,7 +285,7 @@ export const tours: Tour[] = [
     tags: ["Rabat", "Meknès", "Volubilis", "Fès", "Erg Chebbi", "Haïmas"],
     name: "9 días: Ciudades imperiales y Sáhara",
     description: "El circuito clásico de norte a sur: Rabat, Meknès, Volubilis, Fès, desierto de Merzouga y Marrakech.",
-    image: "/photos/imperial-fes.jpeg",
+    image: "/photos/imlil.jpeg",
     itinerary: [
       {
         day: 1,
@@ -341,7 +341,7 @@ export const tours: Tour[] = [
     tags: ["Rabat", "Meknès", "Fès", "Erg Chebbi", "Marrakech", "Essaouira"],
     name: "13 días: Gran Tour Marruecos Norte-Sur",
     description: "El gran recorrido completo: ciudades imperiales, desierto de Merzouga, ruta de las kasbahs, Marrakech y excursión a Essaouira.",
-    image: "/photos/tour-guide-5.jpeg",
+    image: "/photos/fleet-toyotas.jpeg",
     itinerary: [
       { day: 1,  title: "Casablanca → Rabat",                  route: "Mezquita Hassan II, mausoleo Mohammed V, kasbah Oudaïa." },
       { day: 2,  title: "Rabat → Meknès → Volubilis",          route: "Puerta Bab Mansour, ruinas romanas de Volubilis (UNESCO)." },
@@ -374,7 +374,7 @@ export const tours: Tour[] = [
     tags: ["Chefchaouen", "Fès", "Erg Chebbi", "Marrakech"],
     name: "10 días: Chefchaouen, Fès y el Sáhara",
     description: "Rabat, la ciudad azul de Chefchaouen, Fès medieval, desierto de Merzouga y Marrakech.",
-    image: "/photos/imperial-chefchaouen.jpeg",
+    image: "/photos/chefchaouen-2.avif",
     itinerary: [
       { day: 1,  title: "Casablanca → Rabat",           route: "Kasbah Oudaïa, torre Hassan, médina de Salé." },
       { day: 2,  title: "Rabat → Chefchaouen",          route: "Carretera del Rif, llegada a la ciudad azul." },
@@ -414,7 +414,7 @@ export const tours: Tour[] = [
     tags: ["Chefchaouen", "Rabat", "Meknès", "Fès", "Erg Chebbi", "Marrakech"],
     name: "10 días: De Tánger a Marrakech por el Sáhara",
     description: "El gran eje norte-sur: Chefchaouen, Meknès, Fès, desierto de Merzouga en 4x4 y Marrakech.",
-    image: "/photos/imperial-chefchaouen.jpeg",
+    image: "/photos/group-mountains.jpeg",
     itinerary: [
       {
         day: 1,
@@ -475,7 +475,7 @@ export const tours: Tour[] = [
     tags: ["Chefchaouen", "Fès", "Erg Chebbi", "Essaouira", "Marrakech"],
     name: "16 días: Gran circuito Marruecos completo",
     description: "El itinerario definitivo para conocer todo Marruecos: de norte a sur pasando por Chefchaouen, Fès, el Sáhara, Marrakech y Essaouira.",
-    image: "/photos/tour-guide-7.jpeg",
+    image: "/photos/group-nature.jpeg",
     itinerary: [
       { day: 1,  title: "Marrakech",                           route: "Jemaa el-Fna, Jardin Majorelle, médina de Marrakech." },
       { day: 2,  title: "Marrakech → Essaouira",               route: "Costa atlántica, médina de Essaouira, puerto de pesca." },
@@ -530,7 +530,7 @@ export const tours: Tour[] = [
     tags: ["Atlas", "Erg Chebbi", "Marrakech", "Essaouira"],
     name: "10 días: Fès, desierto y Marrakech",
     description: "De la médina más antigua de África al Sáhara dorado y la Marrakech milenaria.",
-    image: "/photos/imperial-fes.jpeg",
+    image: "/photos/agafay.jpeg",
     itinerary: [
       { day: 1,  title: "Fès",                                  route: "Médina: tenerías de Chouara, medersa Bou Inania, universidad Qarawiyyin." },
       { day: 2,  title: "Fès → Ifrane → Erg Chebbi",           route: "Ifrane (estación alpina), Moyen-Atlas, llegada a Merzouga." },
@@ -551,7 +551,7 @@ export const tours: Tour[] = [
     tags: ["Ifrane", "Erg Chebbi", "Ouarzazate", "Marrakech"],
     name: "6 días: Fès, Sáhara y Marrakech",
     description: "De Fès al Sáhara hasta Marrakech: naturaleza, cultura y descubrimientos históricos.",
-    image: "/photos/atlas-roches.jpeg",
+    image: "/photos/waterfall-ourika.jpeg",
     itinerary: [
       { day: 1, title: "Fès → Ifrane → Erg Chebbi",           route: "Ifrane, Moyen-Atlas, llegada a Merzouga." },
       { day: 2, title: "Erg Chebbi",                           route: "Camp de haïmas, dromadario, estrellas del Sáhara." },

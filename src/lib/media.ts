@@ -54,6 +54,33 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: 30, src: "/photos/tour-guide-2.jpeg",            caption: "Circuit guidé en montagne",             category: "atlas" },
   { id: 31, src: "/photos/tour-guide-3.jpeg",            caption: "Randonnée dans les vallées berbères",   category: "atlas" },
   { id: 32, src: "/photos/tour-guide-4.jpeg",            caption: "Découverte locale avec guide expert",   category: "atlas" },
+  // Desierto — nouvelles photos
+  { id: 33, src: "/photos/ait-ben-haddou.jpeg",          caption: "Kasbah d'Aït Ben Haddou (UNESCO)",      category: "desierto" },
+  { id: 34, src: "/photos/desert-camp.jpeg",             caption: "Camp de haïmas, Merzouga",              category: "desierto" },
+  { id: 35, src: "/photos/desert-camp-1.jpeg",           caption: "Soirée au camp du désert",              category: "desierto" },
+  { id: 36, src: "/photos/desert-camp-3.jpeg",           caption: "Nuit sous les étoiles, Erg Chebbi",     category: "desierto" },
+  { id: 37, src: "/photos/group-desert.jpeg",            caption: "Groupe en expédition saharienne",       category: "desierto" },
+  { id: 38, src: "/photos/owner-desert.jpeg",            caption: "Guide local dans les dunes",            category: "desierto" },
+  { id: 39, src: "/photos/quad-desert.jpeg",             caption: "Quad dans les dunes, Merzouga",         category: "desierto" },
+  { id: 40, src: "/photos/toyota-desert.jpeg",           caption: "4x4 au camp du désert",                 category: "desierto" },
+  // Essaouira — nouvelles photos
+  { id: 41, src: "/photos/group-seaside.jpeg",           caption: "Groupe en bord de mer, Essaouira",      category: "essaouira" },
+  // Atlas — nouvelles photos
+  { id: 42, src: "/photos/agafay.jpeg",                  caption: "Désert rocailleux de l'Agafay",         category: "atlas" },
+  { id: 43, src: "/photos/imlil.jpeg",                   caption: "Village d'Imlil, base du Toubkal",      category: "atlas" },
+  { id: 44, src: "/photos/ourika.avif",                  caption: "Vallée de l'Ourika, Haut-Atlas",        category: "atlas" },
+  { id: 45, src: "/photos/group-mountains.jpeg",         caption: "Randonnée en groupe dans l'Atlas",      category: "atlas" },
+  { id: 46, src: "/photos/group-nature.jpeg",            caption: "Excursion nature, Atlas marocain",      category: "atlas" },
+  { id: 47, src: "/photos/toyota-atlas-snow.jpeg",       caption: "Toyota Prado dans l'Atlas enneigé",     category: "atlas" },
+  { id: 48, src: "/photos/waterfall-ourika.jpeg",        caption: "Cascades de Setti Fatma, Ourika",       category: "atlas" },
+  // Marrakech — nouvelles photos
+  { id: 49, src: "/photos/hotel-pool-night.jpeg",        caption: "Piscine de riad, nuit à Marrakech",     category: "marrakech" },
+  { id: 50, src: "/photos/riad-pool.jpeg",               caption: "Riad avec piscine, Marrakech",          category: "marrakech" },
+  { id: 51, src: "/photos/riad.jpeg",                    caption: "Riad traditionnel, médina",             category: "marrakech" },
+  { id: 52, src: "/photos/riad-2.jpeg",                  caption: "Architecture intérieure de riad",       category: "marrakech" },
+  // Villes impériales — nouvelles photos
+  { id: 53, src: "/photos/chefchaouen-2.avif",           caption: "Chefchaouen, cité bleue du Rif",        category: "imperial" },
+  { id: 54, src: "/photos/kasbah.jpeg",                  caption: "Kasbah marocaine, route des kasbahs",   category: "imperial" },
 ];
 
 // 6 destination cards for the homepage section
