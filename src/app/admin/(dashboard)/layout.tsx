@@ -24,7 +24,7 @@ async function isAuthenticated(): Promise<boolean> {
   }
 }
 
-export default async function AdminLayout({ children }: { children: ReactNode }) {
+export default async function DashboardLayout({ children }: { children: ReactNode }) {
   const authed = await isAuthenticated();
   if (!authed) redirect("/admin/login");
 
