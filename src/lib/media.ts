@@ -83,7 +83,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: 54, src: "/photos/kasbah.jpeg",                  caption: "Kasbah marocaine, route des kasbahs",   category: "imperial" },
 ];
 
-// 6 destination cards for the homepage section
+// Destination cards for the homepage section
 export const DESTINATIONS = [
   {
     key: "desierto",
@@ -98,16 +98,10 @@ export const DESTINATIONS = [
     label: { es: "Marrakech", en: "Marrakech", fr: "Marrakech" },
   },
   {
-    key: "atlas",
-    slug: "atlas",
-    src: "/photos/atlas-roches.jpeg",
-    label: { es: "Atlas", en: "Atlas", fr: "Atlas" },
-  },
-  {
-    key: "essaouira",
-    slug: "essaouira",
-    src: "/photos/essaouira-mer.jpeg",
-    label: { es: "Essaouira", en: "Essaouira", fr: "Essaouira" },
+    key: "chefchaouen",
+    slug: "imperial",
+    src: "/photos/imperial-chefchaouen.jpeg",
+    label: { es: "Chefchaouen", en: "Chefchaouen", fr: "Chefchaouen" },
   },
   {
     key: "fes",
@@ -116,9 +110,51 @@ export const DESTINATIONS = [
     label: { es: "Fès", en: "Fès", fr: "Fès" },
   },
   {
+    key: "merzouga",
+    slug: "desierto",
+    src: "/photos/desierto-hero.jpeg",
+    label: { es: "Merzouga", en: "Merzouga", fr: "Merzouga" },
+  },
+  {
+    key: "essaouira",
+    slug: "essaouira",
+    src: "/photos/essaouira-mer.jpeg",
+    label: { es: "Essaouira", en: "Essaouira", fr: "Essaouira" },
+  },
+  {
+    key: "atlas",
+    slug: "atlas",
+    src: "/photos/atlas-roches.jpeg",
+    label: { es: "Alto Atlas", en: "High Atlas", fr: "Haut Atlas" },
+  },
+  {
+    key: "ait-ben-haddou",
+    slug: "desierto",
+    src: "/photos/ait-ben-haddou.jpeg",
+    label: { es: "Aït Ben Haddou", en: "Aït Ben Haddou", fr: "Aït Ben Haddou" },
+  },
+  {
+    key: "imlil",
+    slug: "atlas",
+    src: "/photos/imlil.jpeg",
+    label: { es: "Imlil · Toubkal", en: "Imlil · Toubkal", fr: "Imlil · Toubkal" },
+  },
+  {
+    key: "ourika",
+    slug: "atlas",
+    src: "/photos/waterfall-ourika.jpeg",
+    label: { es: "Valle del Ourika", en: "Ourika Valley", fr: "Vallée de l'Ourika" },
+  },
+  {
     key: "agafay",
     slug: null,
-    src: "/photos/desierto-dune.jpeg",
+    src: "/photos/agafay.jpeg",
     label: { es: "Agafay", en: "Agafay", fr: "Agafay" },
+  },
+  {
+    key: "volubilis",
+    slug: "imperial",
+    src: "/photos/imperial-walili.jpeg",
+    label: { es: "Volubilis", en: "Volubilis", fr: "Volubilis" },
   },
 ] as const;
