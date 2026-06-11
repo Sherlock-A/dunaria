@@ -1,0 +1,121 @@
+{
+  "blog": {
+    "metaTitle": "Guías del desierto de Marruecos | Dunaria",
+    "metaDescription": "Todas las guías, itinerarios y consejos para viajar al Sáhara marroquí. Merzouga, Zagora, Erg Chebbi y más.",
+    "heading": "Guías y artículos",
+    "subheading": "Todo lo que necesitas para vivir el Sáhara: rutas, consejos, itinerarios y los mejores spots.",
+    "all": "Todos",
+    "cluster_desierto": "Desierto",
+    "cluster_marrakech": "Marrakech",
+    "cluster_atlas": "Atlas",
+    "cluster_imperial": "Ciudades Imperiales"
+  },
+  "tours": {
+    "metaTitle": "Tours privados por Marruecos | Dunaria",
+    "metaDescription": "Circuitos privados en 4×4 por Marruecos: Sáhara, ciudades imperiales, Atlas. De 3 a 15 días desde Marrakech, Casablanca, Tánger o Fez.",
+    "heroTitle": "Tours privados por Marruecos",
+    "heroSubtitle": "Circuitos en Toyota Land Cruiser con conductor experto. De 3 a 15 días.",
+    "fleetTitle": "Nuestra flota",
+    "fleetSubtitle": "Cómoda, capable y privada.",
+    "fleetAc": "A/C privado",
+    "fleetTerrain": "Todo terreno 4×4",
+    "fleetLuggage": "Maletero amplio",
+    "fleetDriver": "Conductor experto",
+    "destTitle": "Destinos",
+    "toursTitle": "Nuestros tours",
+    "all": "Todos",
+    "from": "Desde",
+    "days": "días",
+    "viewDetails": "Consultar disponibilidad",
+    "dep_marrakech": "Marrakech",
+    "dep_casablanca": "Casablanca",
+    "dep_tangier": "Tánger",
+    "dep_fes": "Fez",
+    "backLink": "← Todos los tours",
+    "whatsapp": "Consultar por WhatsApp",
+    "itineraryNote": "El itinerario completo día a día se envía al solicitar información.",
+    "included": "Qué incluye este tour",
+    "requestDetails": "Pedir información del tour",
+    "noResults": "Sin tours disponibles desde este destino.",
+    "priceFrom": "Desde"
+  },
+  "leadCapture": {
+    "title": "Solicita información",
+    "body": "Deja tus datos y te respondemos en menos de 24h con disponibilidad y precio.",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "phonePlaceholder": "Teléfono / WhatsApp",
+    "emailPlaceholder": "Email",
+    "tourInterestPlaceholder": "Tour de interés (opcional)",
+    "button": "Solicitar información",
+    "success": "¡Mensaje enviado!",
+    "successBody": "Te responderemos pronto con toda la información.",
+    "privacy": "Sin spam. Solo info relevante sobre tours y ofertas.",
+    "errorRetry": "Error al enviar. Por favor inténtalo de nuevo.",
+    "next": "Siguiente →",
+    "back": "← Volver"
+  },
+  "home": {
+    "metaTitle": "Viajar al desierto de Marruecos: guía completa",
+    "metaDescription": "Todo para organizar tu viaje al desierto del Sáhara en Marruecos: mejor época, itinerarios, dónde dormir y consejos prácticos.",
+    "heroTitle": "El desierto de Marruecos, sin filtros",
+    "heroSubtitle": "Guías reales, itinerarios y consejos para vivir el Sáhara: de Marrakech a Merzouga y Erg Chigaga.",
+    "latestArticles": "Últimos artículos",
+    "noArticles": "Pronto publicaremos las primeras guías.",
+    "viewAllArticles": "Ver todos los artículos →",
+    "destinationsTitle": "Nuestros destinos"
+  },
+  "footer": {
+    "tagline": "Hecho para viajeros del desierto"
+  },
+  "emailCapture": {
+    "title": "Itinerario gratis: 4 días Marrakech → Merzouga",
+    "body": "Descarga el PDF con el itinerario día a día, presupuesto y mapa.",
+    "placeholder": "Tu email",
+    "button": "Quiero el PDF",
+    "success": "¡Listo! Revisa tu correo para descargar el itinerario.",
+    "socialTitle": "Síguenos para más desierto",
+    "socialBody": "Fotos, vídeos y consejos cada semana en nuestras redes."
+  },
+  "gallery": {
+    "metaTitle": "Galería de fotos de Marruecos | Dunaria",
+    "metaDescription": "Imágenes reales del desierto del Sáhara, Marrakech, el Atlas y las ciudades imperiales de Marruecos.",
+    "heading": "Real moments, real Morocco.",
+    "subheading": "Fotos del desierto, las medinas, el Atlas y las ciudades imperiales.",
+    "filterAll": "Todos",
+    "filterDesierto": "Desierto",
+    "filterMarrakech": "Marrakech",
+    "filterAtlas": "Atlas",
+    "filterImperial": "Imperial"
+  },
+  "services": {
+    "metaTitle": "Nuestros servicios de viaje a Marruecos | Dunaria",
+    "metaDescription": "Tours privados en 4×4, guías locales certificados y transferts aeropuerto en Marruecos. Planifica tu viaje con expertos locales.",
+    "heading": "Lo que ofrecemos",
+    "subheading": "Experiencias a medida para viajeros exigentes. Sin grupos, sin prisas.",
+    "s1Title": "Tours privados 4×4",
+    "s1Desc": "Circuitos de 3 a 15 días en Toyota Land Cruiser con conductor experto. Desierto, ciudades imperiales, Atlas — en privado, a tu ritmo.",
+    "s1Cta": "Ver tours disponibles",
+    "s2Title": "Guía local certificado",
+    "s2Desc": "Guías hispanohablantes y francófonos con licencia oficial para Marrakech, Fès, Meknès y las medinas del norte. Contexto histórico real, sin discurso turístico.",
+    "s2Cta": "Consultar disponibilidad",
+    "s3Title": "Transferts aeropuerto",
+    "s3Desc": "Traslados privados desde y hacia Marrakech, Casablanca y Fès. Puntualidad garantizada, vehículo climatizado, seguimiento de vuelos en tiempo real.",
+    "s3Cta": "Pedir información",
+    "ctaHeading": "¿No encuentras lo que buscas?",
+    "ctaBody": "Cuéntanos tu viaje y lo organizamos a medida."
+  },
+  "contact": {
+    "metaTitle": "Contacto | Dunaria",
+    "metaDescription": "Contáctanos para planificar tu viaje a Marruecos. Respondemos en menos de 24 horas.",
+    "heading": "Hablemos de tu viaje",
+    "subheading": "Cuéntanos qué tienes en mente y te respondemos en menos de 24 horas.",
+    "infoHeading": "También puedes encontrarnos en",
+    "whatsapp": "WhatsApp directo",
+    "email": "Email"
+  },
+  "common": {
+    "share": "Compartir",
+    "shareOn": "Compartir en"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "blog": {
+    "metaTitle": "Morocco Desert Guides | Dunaria",
+    "metaDescription": "All guides, itineraries and tips for traveling in the Moroccan Sahara. Merzouga, Zagora, Erg Chebbi and more.",
+    "heading": "Guides & articles",
+    "subheading": "Everything you need to experience the Sahara: routes, tips, itineraries and the best spots.",
+    "all": "All",
+    "cluster_desierto": "Desert",
+    "cluster_marrakech": "Marrakech",
+    "cluster_atlas": "Atlas",
+    "cluster_imperial": "Imperial Cities"
+  },
+  "tours": {
+    "metaTitle": "Private Morocco Tours | Dunaria",
+    "metaDescription": "Private 4×4 tours across Morocco: Sahara, imperial cities, Atlas. 3 to 15 days from Marrakech, Casablanca, Tangier or Fes.",
+    "heroTitle": "Private Morocco Tours",
+    "heroSubtitle": "Toyota Land Cruiser circuits with expert driver. From 3 to 15 days.",
+    "fleetTitle": "Our Fleet",
+    "fleetSubtitle": "Comfortable, capable, private.",
+    "fleetAc": "Private A/C",
+    "fleetTerrain": "All-terrain 4×4",
+    "fleetLuggage": "Ample luggage space",
+    "fleetDriver": "Expert driver",
+    "destTitle": "Destinations",
+    "toursTitle": "Our Tours",
+    "all": "All",
+    "from": "From",
+    "days": "days",
+    "viewDetails": "Check availability",
+    "dep_marrakech": "Marrakech",
+    "dep_casablanca": "Casablanca",
+    "dep_tangier": "Tangier",
+    "dep_fes": "Fes",
+    "backLink": "← All tours",
+    "whatsapp": "WhatsApp Inquiry",
+    "itineraryNote": "Full day-by-day itinerary provided upon request.",
+    "included": "What's included",
+    "requestDetails": "Request tour details",
+    "noResults": "No tours available from this departure.",
+    "priceFrom": "From"
+  },
+  "leadCapture": {
+    "title": "Request information",
+    "body": "Leave your details and we'll reply within 24h with availability and pricing.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phonePlaceholder": "Phone / WhatsApp",
+    "emailPlaceholder": "Email",
+    "tourInterestPlaceholder": "Tour of interest (optional)",
+    "button": "Request information",
+    "success": "Message sent!",
+    "successBody": "We'll get back to you shortly with all the details.",
+    "privacy": "No spam. Only relevant tour info and offers.",
+    "errorRetry": "Error sending. Please try again.",
+    "next": "Next →",
+    "back": "← Back"
+  },
+  "home": {
+    "metaTitle": "Morocco Desert Travel: The Complete Guide",
+    "metaDescription": "Everything to plan your Sahara desert trip in Morocco: best time to go, itineraries, where to sleep and practical tips.",
+    "heroTitle": "The Moroccan desert, unfiltered",
+    "heroSubtitle": "Real guides, itineraries and tips for the Sahara: from Marrakech to Merzouga and Erg Chigaga.",
+    "latestArticles": "Latest articles",
+    "noArticles": "First guides coming soon.",
+    "viewAllArticles": "See all articles →",
+    "destinationsTitle": "Our destinations"
+  },
+  "footer": {
+    "tagline": "Made for desert travelers"
+  },
+  "emailCapture": {
+    "title": "Free itinerary: 4 days Marrakech → Merzouga",
+    "body": "Download the PDF with the day-by-day route, budget and map.",
+    "placeholder": "Your email",
+    "button": "Get the PDF",
+    "success": "Done! Check your inbox to download the itinerary.",
+    "socialTitle": "Follow us for more desert",
+    "socialBody": "Photos, videos and tips every week on our channels."
+  },
+  "gallery": {
+    "metaTitle": "Morocco Photo Gallery | Dunaria",
+    "metaDescription": "Real images of the Sahara desert, Marrakech, the Atlas mountains and Morocco's imperial cities.",
+    "heading": "Real moments, real Morocco.",
+    "subheading": "Photos from the desert, medinas, Atlas and imperial cities.",
+    "filterAll": "All",
+    "filterDesierto": "Desert",
+    "filterMarrakech": "Marrakech",
+    "filterAtlas": "Atlas",
+    "filterImperial": "Imperial"
+  },
+  "services": {
+    "metaTitle": "Our Morocco Travel Services | Dunaria",
+    "metaDescription": "Private 4×4 tours, certified local guides and airport transfers in Morocco. Plan your trip with local experts.",
+    "heading": "What we offer",
+    "subheading": "Tailor-made experiences for discerning travellers. No groups, no rush.",
+    "s1Title": "Private 4×4 Tours",
+    "s1Desc": "3 to 15-day circuits in a Toyota Land Cruiser with an expert driver. Desert, imperial cities, Atlas — privately, at your own pace.",
+    "s1Cta": "See available tours",
+    "s2Title": "Certified local guide",
+    "s2Desc": "Spanish and French-speaking guides with official licences for Marrakech, Fès, Meknès and the northern medinas. Real historical context, no tourist script.",
+    "s2Cta": "Check availability",
+    "s3Title": "Airport transfers",
+    "s3Desc": "Private transfers to and from Marrakech, Casablanca and Fès. Punctuality guaranteed, air-conditioned vehicle, real-time flight tracking.",
+    "s3Cta": "Request information",
+    "ctaHeading": "Can't find what you're looking for?",
+    "ctaBody": "Tell us about your trip and we'll organise it to your specifications."
+  },
+  "contact": {
+    "metaTitle": "Contact | Dunaria",
+    "metaDescription": "Contact us to plan your Morocco trip. We reply within 24 hours.",
+    "heading": "Let's talk about your trip",
+    "subheading": "Tell us what you have in mind and we'll reply within 24 hours.",
+    "infoHeading": "You can also find us on",
+    "whatsapp": "Direct WhatsApp",
+    "email": "Email"
+  },
+  "common": {
+    "share": "Share",
+    "shareOn": "Share on"
+  }
+}
