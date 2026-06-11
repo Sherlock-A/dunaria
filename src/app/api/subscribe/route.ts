@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 function tagsFromSource(source?: string): string[] {
   if (!source) return [];
-  if (source === "blog-desierto") return ["desierto"];
-  if (source === "blog-marrakech") return ["marrakech"];
+  if (source.includes("desierto")) return ["desierto"];
+  if (source.includes("marrakech")) return ["marrakech"];
+  if (source.includes("atlas")) return ["atlas"];
+  if (source.includes("imperial")) return ["imperial"];
   if (source === "tours") return ["tours"];
   return [];
 }
@@ -46,40 +48,58 @@ export async function POST(req: NextRequest) {
     tourInterest?: string;
   };
 
-  const tags = tagsFromSource(source);
+  if (!email || typeof email !== "string" || !email.includes("@")) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
 
-  // ── Supabase upsert ──────────────────────────────────────────────────────
-  if (email && process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY) {
+  const newTags = tagsFromSource(source);
+
+  // ── Supabase upsert (with tag merge) ─────────────────────────────────────
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY) {
     try {
       const { createClient } = await import("@supabase/supabase-js");
       const sb = createClient(
         process.env.SUPABASE_URL,
         process.env.SUPABASE_SERVICE_KEY
       );
+
+      // Fetch existing tags to merge (avoid overwriting with upsert)
+      const { data: existing } = await sb
+        .from("contacts")
+        .select("interest_tags")
+        .eq("email", email)
+        .single();
+
+      const existingTags: string[] = existing?.interest_tags ?? [];
+      const mergedTags = [...new Set([...existingTags, ...newTags])];
+
       await sb.from("contacts").upsert(
         {
           email,
           locale: locale ?? "es",
           source: source ?? "unknown",
-          interest_tags: tags,
+          interest_tags: mergedTags,
           last_seen_at: new Date().toISOString(),
         },
         { onConflict: "email" }
       );
-    } catch {
-      // Supabase not configured — continue to email provider
-    }
-  }
 
-  if (!email || typeof email !== "string" || !email.includes("@")) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+      // Track the email_submit event for analytics
+      await sb.from("analytics_events").insert({
+        event_type: "email_submit",
+        page: source ?? "unknown",
+        locale: locale ?? "es",
+        meta: { source, tags: mergedTags, type: type ?? "blog" },
+      });
+    } catch {
+      // Supabase not configured or failed — continue to email provider
+    }
   }
 
   const isTourLead = type === "tour";
 
   // ── Brevo ────────────────────────────────────────────────────────────────
   if (process.env.BREVO_API_KEY) {
-    // Pick the right list: tour leads vs blog subscribers
     const listIdEnv = isTourLead
       ? process.env.BREVO_TOUR_LIST_ID
       : (process.env.BREVO_LIST_ID ?? process.env.BREVO_BLOG_LIST_ID);
@@ -88,10 +108,9 @@ export async function POST(req: NextRequest) {
       SOURCE: source ?? `dunaria-${locale ?? "es"}`,
       LOCALE: locale ?? "es",
     };
-    if (tags.length > 0) attributes.TAGS = tags.join(",");
+    if (newTags.length > 0) attributes.TAGS = newTags.join(",");
     if (firstName) attributes.PRENOM = firstName;
     if (lastName) attributes.NOM = lastName;
-    // Brevo stores phone in SMS attribute for SMS campaigns
     if (phone) attributes.SMS = phone;
     if (tourInterest) attributes.TOUR_INTERET = tourInterest;
 
@@ -112,16 +131,14 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify(payload),
     });
 
-    // 201 = created, 204 = already exists — both OK
     if (!res.ok && res.status !== 204) {
       console.error("[subscribe] Brevo error:", res.status, await res.text());
-      // Return ok to client — never expose server errors to the form
       return NextResponse.json({ ok: true });
     }
     return NextResponse.json({ ok: true });
   }
 
-  // ── MailerLite (fallback) ─────────────────────────────────────────────────
+  // ── MailerLite (fallback) ────────────────────────────────────────────────
   if (process.env.MAILERLITE_API_KEY) {
     const fields: Record<string, string> = { locale: locale ?? "es" };
     if (firstName) fields.name = firstName;
@@ -153,9 +170,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ── No provider configured ────────────────────────────────────────────────
-  console.warn(
-    "[subscribe] No email provider configured. Set BREVO_API_KEY or MAILERLITE_API_KEY."
-  );
+  console.warn("[subscribe] No email provider configured. Set BREVO_API_KEY or MAILERLITE_API_KEY.");
   if (isTourLead) {
     console.info("[subscribe] Tour lead:", { email, firstName, lastName, phone, tourInterest, locale });
   }
