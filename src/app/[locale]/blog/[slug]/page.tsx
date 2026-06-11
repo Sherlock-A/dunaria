@@ -161,6 +161,7 @@ export default function ArticlePage({
     marrakech: { es: "Marrakech", en: "Marrakech", fr: "Marrakech" },
     atlas: { es: "Atlas", en: "Atlas", fr: "Atlas" },
     imperial: { es: "Ciudades Imperiales", en: "Imperial Cities", fr: "Villes Impériales" },
+    essaouira: { es: "Essaouira", en: "Essaouira", fr: "Essaouira" },
   };
   const clusterName = clusterLabel[frontmatter.cluster]?.[locale] ?? frontmatter.cluster;
   const clusterUrl = `${SITE_URL}/${locale}/${frontmatter.cluster}`;

@@ -150,9 +150,9 @@ export default async function ServicesPage({
             </div>
             <Link
               href={s.href}
-              className="inline-flex items-center gap-1.5 font-mono text-xs text-gold hover:text-gold-600 transition-colors"
+              className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-night transition-colors hover:bg-gold-600"
             >
-              {s.cta} →
+              {s.cta}
             </Link>
           </div>
         ))}

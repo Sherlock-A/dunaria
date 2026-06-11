@@ -92,10 +92,10 @@ export function Testimonials({ locale }: Props) {
     go(index === 0 ? testimonials.length - 1 : index - 1, -1);
   }, [index, go]);
 
-  // Auto-advance every 2 seconds
+  // Auto-advance every 7 seconds
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(goNext, 2000);
+    const id = setInterval(goNext, 7000);
     return () => clearInterval(id);
   }, [paused, goNext]);
 
@@ -106,6 +106,8 @@ export function Testimonials({ locale }: Props) {
       className="relative overflow-hidden rounded-3xl bg-night px-6 py-12 md:px-12 md:py-14"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setPaused(false)}
     >
       <script
         type="application/ld+json"
@@ -201,7 +203,7 @@ export function Testimonials({ locale }: Props) {
               className="h-full bg-gold/60"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 2, ease: "linear" }}
+              transition={{ duration: 7, ease: "linear" }}
             />
           </div>
         )}
