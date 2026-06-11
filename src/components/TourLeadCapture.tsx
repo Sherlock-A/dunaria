@@ -159,8 +159,7 @@ export function TourLeadCapture({
             <div className="flex justify-end">
               <button
                 onClick={nextStep}
-                disabled={!validStep1}
-                className="rounded-lg bg-gold px-6 py-2.5 font-medium text-night transition-colors hover:bg-gold-600 disabled:opacity-50"
+                className={`rounded-lg bg-gold px-6 py-2.5 font-medium text-night transition-colors ${validStep1 ? "hover:bg-gold-600" : "opacity-60"}`}
               >
                 {t("next")}
               </button>
@@ -231,7 +230,7 @@ export function TourLeadCapture({
                     }
                   }}
                   disabled={loading}
-                  className="shrink-0 rounded-lg bg-gold px-6 py-2.5 font-medium text-night transition-colors hover:bg-gold-600 disabled:opacity-50"
+                  className={`shrink-0 rounded-lg bg-gold px-6 py-2.5 font-medium text-night transition-colors disabled:opacity-50 ${validStep2 ? "hover:bg-gold-600" : "opacity-60"}`}
                 >
                   {loading ? "…" : t("button")}
                 </button>

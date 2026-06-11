@@ -18,21 +18,21 @@ export function BackToTop() {
     <AnimatePresence>
       {visible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 12 }}
+          transition={{ duration: 0.2, ease: [0, 0, 0.2, 1] }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Retour en haut"
-          className="fixed bottom-24 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-sand-300 bg-sand-200 text-night-700 shadow-sm transition-colors hover:bg-sand-300 hover:text-night"
+          className="fixed bottom-[5.5rem] right-6 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-sand-300 bg-white/90 text-night-700 shadow-md backdrop-blur-sm transition-all hover:border-gold/50 hover:text-gold hover:shadow-lg active:scale-95"
         >
           <svg
-            width="18"
-            height="18"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"

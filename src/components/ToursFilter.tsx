@@ -109,7 +109,7 @@ export function ToursFilter({
 
   return (
     <div className="space-y-8">
-      {/* Filter tabs with spring layoutId indicator */}
+      {/* Filter tabs with spring layoutId indicator + count badge */}
       <div className="flex flex-wrap gap-2">
         {(["all", ...departures] as (Departure | "all")[]).map((dep) => {
           const isActive = active === dep;
@@ -119,17 +119,17 @@ export function ToursFilter({
               : tours.filter((t) => t.departure === dep).length;
           const label =
             dep === "all"
-              ? `${labels.all} (${count})`
-              : `${labels.from} ${depName(dep as Departure, labels)} (${count})`;
+              ? labels.all
+              : `${labels.from} ${depName(dep as Departure, labels)}`;
           return (
             <button
               key={dep}
               onClick={() => setActive(dep)}
-              className="relative rounded-full px-4 py-1.5 text-sm"
+              className="relative flex items-center gap-2 rounded-full px-4 py-1.5 text-sm"
             >
               {isActive && (
                 <motion.div
-                  layoutId="filter-pill"
+                  layoutId="tours-filter-pill"
                   className="absolute inset-0 rounded-full bg-gold"
                   transition={{ type: "spring", stiffness: 300, damping: 28 }}
                 />
@@ -142,6 +142,15 @@ export function ToursFilter({
                 }
               >
                 {label}
+              </span>
+              <span
+                className={`relative z-10 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1 font-mono text-[11px] transition-colors ${
+                  isActive
+                    ? "bg-night/15 text-night"
+                    : "bg-sand-200 text-night-600"
+                }`}
+              >
+                {count}
               </span>
             </button>
           );

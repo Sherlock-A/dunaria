@@ -62,19 +62,30 @@ export function GalleryGrid({ photos, labels }: Props) {
 
   return (
     <div>
-      {/* Filter chips */}
+      {/* Filter chips with spring layoutId indicator */}
       <div className="flex flex-wrap gap-2 mb-8">
         {CATEGORIES.map(({ key, labelKey }) => (
           <button
             key={key}
             onClick={() => { setActive(key); setSelectedIdx(null); }}
-            className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
-              active === key
-                ? "bg-gold text-night font-semibold"
-                : "border border-sand-300 text-night-600 hover:border-gold/60 hover:text-gold"
-            }`}
+            className="relative rounded-full px-4 py-1.5 font-mono text-xs"
           >
-            {labels[labelKey]}
+            {active === key && (
+              <motion.div
+                layoutId="gallery-filter-pill"
+                className="absolute inset-0 rounded-full bg-gold"
+                transition={{ type: "spring", stiffness: 300, damping: 28 }}
+              />
+            )}
+            <span
+              className={
+                active === key
+                  ? "relative z-10 font-semibold text-night"
+                  : "relative z-10 text-night-600 transition-colors hover:text-gold"
+              }
+            >
+              {labels[labelKey]}
+            </span>
           </button>
         ))}
       </div>
