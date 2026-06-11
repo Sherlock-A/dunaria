@@ -12,12 +12,15 @@ function getSupabase() {
 async function getAnalytics() {
   const sb = getSupabase();
   if (!sb) {
-    return { topPages: [], byLocale: [], byReferrer: [], byEvent: [], byDevice: [], byCountry: [] };
+    return {
+      topPages: [], byLocale: [], byReferrer: [], byEvent: [], byDevice: [], byCountry: [],
+      scrollDepth: [], timeOnPage: [],
+    };
   }
 
   const month = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
-  const [pagesRes, eventsRes] = await Promise.all([
+  const [pagesRes, eventsRes, scrollRes, timeRes] = await Promise.all([
     sb.from("page_views")
       .select("page, locale, referrer, device, country")
       .gte("created_at", month)
@@ -26,10 +29,22 @@ async function getAnalytics() {
       .select("event_type")
       .gte("created_at", month)
       .limit(ROW_CAP),
+    sb.from("analytics_events")
+      .select("details")
+      .eq("event", "scroll_depth")
+      .gte("created_at", month)
+      .limit(ROW_CAP),
+    sb.from("analytics_events")
+      .select("details")
+      .eq("event", "time_on_page")
+      .gte("created_at", month)
+      .limit(2000),
   ]);
 
   const views = pagesRes.data ?? [];
   const events = eventsRes.data ?? [];
+  const scrollRows = scrollRes.data ?? [];
+  const timeRows = timeRes.data ?? [];
 
   function groupCount<T extends Record<string, unknown>>(rows: T[], key: keyof T) {
     const map = new Map<string, number>();
@@ -42,6 +57,50 @@ async function getAnalytics() {
       .sort((a, b) => b.count - a.count);
   }
 
+  // scroll_depth: group by page+depth, show % reaching 75%
+  const scrollMap = new Map<string, { d25: number; d50: number; d75: number; total: number }>();
+  for (const row of scrollRows) {
+    const d = row.details as Record<string, unknown>;
+    const page = String(d?.page ?? "?");
+    const depth = Number(d?.depth ?? 0);
+    if (!scrollMap.has(page)) scrollMap.set(page, { d25: 0, d50: 0, d75: 0, total: 0 });
+    const entry = scrollMap.get(page)!;
+    entry.total++;
+    if (depth >= 25) entry.d25++;
+    if (depth >= 50) entry.d50++;
+    if (depth >= 75) entry.d75++;
+  }
+  const scrollDepth = Array.from(scrollMap.entries())
+    .map(([page, s]) => ({
+      page,
+      pct25: s.total > 0 ? Math.round((s.d25 / s.total) * 100) : 0,
+      pct50: s.total > 0 ? Math.round((s.d50 / s.total) * 100) : 0,
+      pct75: s.total > 0 ? Math.round((s.d75 / s.total) * 100) : 0,
+      total: s.total,
+    }))
+    .sort((a, b) => b.pct75 - a.pct75)
+    .slice(0, 10);
+
+  // time_on_page: average seconds per page
+  const timeMap = new Map<string, { sum: number; count: number }>();
+  for (const row of timeRows) {
+    const d = row.details as Record<string, unknown>;
+    const page = String(d?.page ?? "?");
+    const secs = Number(d?.seconds ?? 0);
+    if (secs < 3 || secs > 3600) continue;
+    if (!timeMap.has(page)) timeMap.set(page, { sum: 0, count: 0 });
+    const entry = timeMap.get(page)!;
+    entry.sum += secs;
+    entry.count++;
+  }
+  const timeOnPage = Array.from(timeMap.entries())
+    .map(([page, t]) => ({
+      label: page,
+      count: t.count > 0 ? Math.round(t.sum / t.count) : 0,
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 10);
+
   return {
     topPages: groupCount(views, "page").slice(0, 10),
     byLocale: groupCount(views, "locale"),
@@ -49,6 +108,8 @@ async function getAnalytics() {
     byDevice: groupCount(views, "device"),
     byCountry: groupCount(views, "country").slice(0, 10),
     byEvent: groupCount(events, "event_type"),
+    scrollDepth,
+    timeOnPage,
   };
 }
 
@@ -103,7 +164,7 @@ function Table({
 }
 
 export default async function AnalyticsPage() {
-  const { topPages, byLocale, byReferrer, byEvent, byDevice, byCountry } = await getAnalytics();
+  const { topPages, byLocale, byReferrer, byEvent, byDevice, byCountry, scrollDepth, timeOnPage } = await getAnalytics();
   const noSupabase = !process.env.SUPABASE_URL;
 
   return (
@@ -126,6 +187,50 @@ export default async function AnalyticsPage() {
         <Table title="Sources de trafic" rows={byReferrer} />
         <Table title="Appareils" rows={byDevice} />
         <Table title="Pays" rows={byCountry} />
+      </div>
+
+      {/* Engagement section */}
+      <div>
+        <h2 className="font-display text-lg font-medium text-white mb-4">Engagement</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Scroll depth */}
+          <div className="rounded-2xl border border-white/[0.08] overflow-hidden">
+            <div className="px-4 py-3 border-b border-white/[0.08]">
+              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-white/50">Lecture (scroll depth)</h3>
+            </div>
+            {scrollDepth.length === 0 ? (
+              <p className="px-4 py-4 text-white/20 text-xs font-mono">Aucune donnée — les events scroll_depth apparaîtront après quelques visites.</p>
+            ) : (
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/[0.04]">
+                    <th className="px-4 py-2 text-left font-mono text-[10px] text-white/30 uppercase">Page</th>
+                    <th className="px-4 py-2 text-right font-mono text-[10px] text-white/30 uppercase">25%</th>
+                    <th className="px-4 py-2 text-right font-mono text-[10px] text-white/30 uppercase">50%</th>
+                    <th className="px-4 py-2 text-right font-mono text-[10px] text-white/30 uppercase">75%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {scrollDepth.map((r, i) => (
+                    <tr key={i} className="border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02]">
+                      <td className="px-4 py-2.5 font-mono text-xs text-white/60 truncate max-w-[140px]">{r.page}</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-xs text-white/40">{r.pct25}%</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-xs text-white/40">{r.pct50}%</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-xs text-gold/70">{r.pct75}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+
+          {/* Time on page */}
+          <Table
+            title="Temps moyen sur page (s)"
+            rows={timeOnPage}
+            emptyText="Aucune donnée — les events time_on_page apparaîtront après quelques visites."
+          />
+        </div>
       </div>
     </div>
   );

@@ -129,5 +129,13 @@
   "common": {
     "share": "Compartir",
     "shareOn": "Compartir en"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "heading": "Esta página no existe",
+    "body": "La página que buscas ha sido movida, eliminada o no existe. Vuelve al inicio o busca en el blog.",
+    "home": "Volver al inicio",
+    "blog": "Ver el blog",
+    "contact": "Contactar"
   }
 }

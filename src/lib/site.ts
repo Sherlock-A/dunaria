@@ -20,6 +20,10 @@ export const localeNames: Record<Locale, string> = {
 // WhatsApp business number — replace with your real number (format: 212XXXXXXXXX)
 export const WHATSAPP_NUMBER = "212600000000";
 
+// Social links — replace with real account URLs
+export const INSTAGRAM_URL = "https://www.instagram.com/dunaria.travel";
+export const TIKTOK_URL = "https://www.tiktok.com/@dunaria.travel";
+
 // Map our locale codes to full hreflang codes
 export const hreflangMap: Record<Locale, string> = {
   es: "es-ES",

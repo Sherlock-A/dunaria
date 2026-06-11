@@ -69,7 +69,7 @@ export const DESTINATIONS = [
   },
   {
     key: "essaouira",
-    slug: null,
+    slug: "essaouira",
     imageId: 6157049,
     label: { es: "Essaouira", en: "Essaouira", fr: "Essaouira" },
   },

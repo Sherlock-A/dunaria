@@ -129,5 +129,13 @@
   "common": {
     "share": "Share",
     "shareOn": "Share on"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "heading": "This page doesn't exist",
+    "body": "The page you're looking for has been moved, deleted, or never existed. Go back to the homepage or browse the blog.",
+    "home": "Back to home",
+    "blog": "Browse the blog",
+    "contact": "Contact us"
   }
 }

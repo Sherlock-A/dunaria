@@ -9,9 +9,10 @@ interface VideoHeroProps {
   ctaHref?: string;
   ctaLabel?: string;
   trustBadge?: string;
+  poster?: string;
 }
 
-export function VideoHero({ title, subtitle, ctaHref, ctaLabel, trustBadge }: VideoHeroProps) {
+export function VideoHero({ title, subtitle, ctaHref, ctaLabel, trustBadge, poster }: VideoHeroProps) {
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -33,7 +34,8 @@ export function VideoHero({ title, subtitle, ctaHref, ctaLabel, trustBadge }: Vi
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster={poster}
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
       >

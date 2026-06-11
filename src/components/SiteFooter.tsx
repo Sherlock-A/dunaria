@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Locale, SITE_NAME } from "@/lib/site";
+import { Locale, SITE_NAME, INSTAGRAM_URL, TIKTOK_URL } from "@/lib/site";
 import { Logo } from "@/components/Logo";
 import Link from "next/link";
 
@@ -48,9 +48,8 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
             {/* Social + tagline */}
             <div className="flex flex-col items-center gap-3 md:items-end">
               <div className="flex items-center gap-4">
-                {/* TODO: replace # with your real social URLs */}
-                <a href="#" className="transition-colors hover:text-gold">Instagram</a>
-                <a href="#" className="transition-colors hover:text-gold">TikTok</a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">Instagram</a>
+                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">TikTok</a>
               </div>
               <span className="text-sand-300 text-xs">{t("tagline")}</span>
             </div>

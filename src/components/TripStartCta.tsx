@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
 function trackWa(page: string, locale: string) {
   const consent = typeof window !== "undefined" && localStorage.getItem("cookie_consent");
@@ -140,8 +141,7 @@ const LABELS: Record<string, { heading: string; sub: string; cta: string }> = {
 export function TripStartCta({ locale }: TripStartCtaProps) {
   const l = LABELS[locale] ?? LABELS.fr;
   const pathname = usePathname();
-  // TODO: replace with real WhatsApp number
-  const waHref = `https://wa.me/212600000000?text=${encodeURIComponent(l.cta)}`;
+  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(l.cta)}`;
 
   return (
     <section className="relative overflow-hidden bg-night-800 py-20 px-4">
