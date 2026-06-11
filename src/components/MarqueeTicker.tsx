@@ -12,10 +12,10 @@ const ITEMS: Record<string, Item[]> = {
     { label: "Ciudades Imperiales", src: "/photos/imperial-fes.jpeg" },
     { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
     { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
-    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Toubkal",             src: "/photos/imlil.jpeg" },
     { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
     { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
-    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
+    { label: "Agafay",              src: "/photos/agafay.jpeg" },
   ],
   en: [
     { label: "Sahara",              src: "/photos/desierto-principal.jpeg" },
@@ -24,10 +24,10 @@ const ITEMS: Record<string, Item[]> = {
     { label: "Imperial Cities",     src: "/photos/imperial-fes.jpeg" },
     { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
     { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
-    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Toubkal",             src: "/photos/imlil.jpeg" },
     { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
     { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
-    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
+    { label: "Agafay",              src: "/photos/agafay.jpeg" },
   ],
   fr: [
     { label: "Sahara",              src: "/photos/desierto-principal.jpeg" },
@@ -36,10 +36,10 @@ const ITEMS: Record<string, Item[]> = {
     { label: "Villes Impériales",   src: "/photos/imperial-fes.jpeg" },
     { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
     { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
-    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Toubkal",             src: "/photos/imlil.jpeg" },
     { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
     { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
-    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
+    { label: "Agafay",              src: "/photos/agafay.jpeg" },
   ],
 };
 
