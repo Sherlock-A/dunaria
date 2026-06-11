@@ -39,7 +39,9 @@
     "included": "What's included",
     "requestDetails": "Request tour details",
     "noResults": "No tours available from this departure.",
-    "priceFrom": "From"
+    "priceFrom": "From",
+    "itinerary": "Day by day itinerary",
+    "day": "Day"
   },
   "leadCapture": {
     "title": "Request information",

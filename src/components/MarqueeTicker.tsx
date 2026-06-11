@@ -1,46 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { getPexelsUrl } from "@/lib/media";
 
-type Item = { label: string; imageId: number };
+type Item = { label: string; src: string };
 
 const ITEMS: Record<string, Item[]> = {
   es: [
-    { label: "Sahara",              imageId: 1585325 },
-    { label: "Marrakech",           imageId: 3880961 },
-    { label: "Atlas",               imageId: 2246874 },
-    { label: "Ciudades Imperiales", imageId: 3889742 },
-    { label: "Merzouga",            imageId: 3225517 },
-    { label: "Chefchaouen",         imageId: 2387703 },
-    { label: "Toubkal",             imageId: 4388164 },
-    { label: "Fès",                 imageId: 1707820 },
-    { label: "Erg Chebbi",          imageId: 3617500 },
-    { label: "Agafay",              imageId: 5472573 },
+    { label: "Sahara",              src: "/photos/desierto-principal.jpeg" },
+    { label: "Marrakech",           src: "/photos/marrakech.jpeg" },
+    { label: "Atlas",               src: "/photos/atlas-roches.jpeg" },
+    { label: "Ciudades Imperiales", src: "/photos/imperial-fes.jpeg" },
+    { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
+    { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
+    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
+    { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
+    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
   ],
   en: [
-    { label: "Sahara",              imageId: 1585325 },
-    { label: "Marrakech",           imageId: 3880961 },
-    { label: "Atlas",               imageId: 2246874 },
-    { label: "Imperial Cities",     imageId: 3889742 },
-    { label: "Merzouga",            imageId: 3225517 },
-    { label: "Chefchaouen",         imageId: 2387703 },
-    { label: "Toubkal",             imageId: 4388164 },
-    { label: "Fès",                 imageId: 1707820 },
-    { label: "Erg Chebbi",          imageId: 3617500 },
-    { label: "Agafay",              imageId: 5472573 },
+    { label: "Sahara",              src: "/photos/desierto-principal.jpeg" },
+    { label: "Marrakech",           src: "/photos/marrakech.jpeg" },
+    { label: "Atlas",               src: "/photos/atlas-roches.jpeg" },
+    { label: "Imperial Cities",     src: "/photos/imperial-fes.jpeg" },
+    { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
+    { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
+    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
+    { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
+    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
   ],
   fr: [
-    { label: "Sahara",              imageId: 1585325 },
-    { label: "Marrakech",           imageId: 3880961 },
-    { label: "Atlas",               imageId: 2246874 },
-    { label: "Villes Impériales",   imageId: 3889742 },
-    { label: "Merzouga",            imageId: 3225517 },
-    { label: "Chefchaouen",         imageId: 2387703 },
-    { label: "Toubkal",             imageId: 4388164 },
-    { label: "Fès",                 imageId: 1707820 },
-    { label: "Erg Chebbi",          imageId: 3617500 },
-    { label: "Agafay",              imageId: 5472573 },
+    { label: "Sahara",              src: "/photos/desierto-principal.jpeg" },
+    { label: "Marrakech",           src: "/photos/marrakech.jpeg" },
+    { label: "Atlas",               src: "/photos/atlas-roches.jpeg" },
+    { label: "Villes Impériales",   src: "/photos/imperial-fes.jpeg" },
+    { label: "Merzouga",            src: "/photos/desierto-hero.jpeg" },
+    { label: "Chefchaouen",         src: "/photos/imperial-chefchaouen.jpeg" },
+    { label: "Toubkal",             src: "/photos/tour-guide-principal.jpeg" },
+    { label: "Fès",                 src: "/photos/imperial-fes-2.jpeg" },
+    { label: "Erg Chebbi",          src: "/photos/desierto-dune.jpeg" },
+    { label: "Agafay",              src: "/photos/desierto-dune-2.jpeg" },
   ],
 };
 
@@ -69,7 +68,7 @@ export function MarqueeTicker({ locale }: Props) {
           <span key={i} className="inline-flex items-center gap-5 px-6">
             <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-gold/30">
               <Image
-                src={getPexelsUrl(item.imageId, 80, 80)}
+                src={item.src}
                 alt=""
                 fill
                 className="object-cover"

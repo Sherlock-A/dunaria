@@ -1,12 +1,8 @@
-export function getPexelsUrl(id: number, w = 800, h = 600): string {
-  return `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&fit=crop`;
-}
-
 // Fallback hero images per cluster (used when article has no frontmatter.image)
 export const CLUSTER_HERO: Record<string, string> = {
   desierto: "/photos/desierto-principal.jpeg",
   marrakech: "/photos/marrakech.jpeg",
-  atlas: getPexelsUrl(2246874),
+  atlas: "/photos/atlas-roches.jpeg",
   imperial: "/photos/imperial-fes.jpeg",
   essaouira: "/photos/essaouira-mer.jpeg",
 };
@@ -52,12 +48,12 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: 25, src: "/photos/marrakech-hotel-2.jpeg",   caption: "Architecture de riad",               category: "marrakech" },
   { id: 26, src: "/photos/marrakech-ambiance.jpeg",  caption: "Ambiance nocturne, Marrakech",       category: "marrakech" },
   { id: 27, src: "/photos/marrakech-ambiance-2.jpeg",caption: "Soirée dans la médina",              category: "marrakech" },
-  // Atlas — 1 photo locale + Pexels pour compléter
-  { id: 28, src: "/photos/atlas-roches.jpeg",        caption: "Roches rouges de l'Atlas",           category: "atlas" },
-  { id: 29, src: getPexelsUrl(2246874, 1200, 900),   caption: "Vue depuis le Toubkal",              category: "atlas" },
-  { id: 30, src: getPexelsUrl(5472573, 1200, 900),   caption: "Plateau désertique d'Agafay",        category: "atlas" },
-  { id: 31, src: getPexelsUrl(4388164, 1200, 900),   caption: "Village berbère dans la vallée",     category: "atlas" },
-  { id: 32, src: getPexelsUrl(1563356, 1200, 900),   caption: "Cascades de Setti Fatma, Ourika",    category: "atlas" },
+  // Atlas & guides — photos locales
+  { id: 28, src: "/photos/atlas-roches.jpeg",            caption: "Roches rouges de l'Atlas",              category: "atlas" },
+  { id: 29, src: "/photos/tour-guide-principal.jpeg",    caption: "Guide local dans l'Atlas",              category: "atlas" },
+  { id: 30, src: "/photos/tour-guide-2.jpeg",            caption: "Circuit guidé en montagne",             category: "atlas" },
+  { id: 31, src: "/photos/tour-guide-3.jpeg",            caption: "Randonnée dans les vallées berbères",   category: "atlas" },
+  { id: 32, src: "/photos/tour-guide-4.jpeg",            caption: "Découverte locale avec guide expert",   category: "atlas" },
 ];
 
 // 6 destination cards for the homepage section
@@ -65,37 +61,37 @@ export const DESTINATIONS = [
   {
     key: "desierto",
     slug: "desierto",
-    imageId: 1585325,
+    src: "/photos/desierto-principal.jpeg",
     label: { es: "Desierto del Sáhara", en: "Sahara Desert", fr: "Désert du Sahara" },
   },
   {
     key: "marrakech",
     slug: "marrakech",
-    imageId: 3880961,
+    src: "/photos/marrakech.jpeg",
     label: { es: "Marrakech", en: "Marrakech", fr: "Marrakech" },
   },
   {
     key: "atlas",
     slug: "atlas",
-    imageId: 2246874,
+    src: "/photos/atlas-roches.jpeg",
     label: { es: "Atlas", en: "Atlas", fr: "Atlas" },
   },
   {
     key: "essaouira",
     slug: "essaouira",
-    imageId: 6157049,
+    src: "/photos/essaouira-mer.jpeg",
     label: { es: "Essaouira", en: "Essaouira", fr: "Essaouira" },
   },
   {
     key: "fes",
     slug: "imperial",
-    imageId: 3889742,
+    src: "/photos/imperial-fes.jpeg",
     label: { es: "Fès", en: "Fès", fr: "Fès" },
   },
   {
     key: "agafay",
     slug: null,
-    imageId: 5472573,
+    src: "/photos/desierto-dune.jpeg",
     label: { es: "Agafay", en: "Agafay", fr: "Agafay" },
   },
 ] as const;

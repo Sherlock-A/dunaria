@@ -39,7 +39,9 @@
     "included": "Ce que comprend ce tour",
     "requestDetails": "Demander les détails",
     "noResults": "Aucun tour disponible depuis ce départ.",
-    "priceFrom": "Dès"
+    "priceFrom": "Dès",
+    "itinerary": "Itinéraire jour par jour",
+    "day": "Jour"
   },
   "leadCapture": {
     "title": "Demander des informations",

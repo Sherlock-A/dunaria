@@ -64,11 +64,6 @@ function TourCard({ tour, labels }: { tour: Tour; labels: TourLabels }) {
         <span className="absolute left-3 top-3 rounded-full bg-night/80 px-3 py-1 font-mono text-xs tracking-wider text-gold backdrop-blur-sm">
           {tour.days} {labels.days}
         </span>
-        {tour.priceFrom && (
-          <span className="absolute right-3 top-3 rounded-full bg-gold/90 px-3 py-1 font-mono text-xs tracking-wider text-night backdrop-blur-sm">
-            {labels.priceFrom ?? "Desde"} €{tour.priceFrom}
-          </span>
-        )}
         <h3 className="absolute bottom-3 left-4 right-4 font-display text-lg font-medium leading-snug text-white">
           {tour.name}
         </h3>

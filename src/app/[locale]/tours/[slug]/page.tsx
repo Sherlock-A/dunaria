@@ -176,19 +176,38 @@ export default async function TourDetailPage({
             <span>
               {t("from")} {depLabels[tour.departure] ?? tour.departure}
             </span>
-            {tour.priceFrom && (
-              <>
-                <span>·</span>
-                <span className="text-gold">
-                  {t("priceFrom")} €{tour.priceFrom}
-                </span>
-              </>
-            )}
           </div>
 
           <p className="text-lg text-night-700">{tour.description}</p>
         </header>
       </FadeUp>
+
+      {/* Day-by-day itinerary */}
+      {tour.itinerary && tour.itinerary.length > 0 && (
+        <FadeUp>
+          <section className="space-y-3">
+            <h2 className="font-display text-xl font-medium text-night">
+              {t("itinerary")}
+            </h2>
+            <div className="space-y-2">
+              {tour.itinerary.map((day) => (
+                <div
+                  key={day.day}
+                  className="rounded-xl border border-sand-300 bg-white p-4"
+                >
+                  <p className="font-mono text-xs uppercase tracking-widest text-gold mb-1">
+                    {t("day")} {day.day}
+                  </p>
+                  <p className="font-display text-base font-medium text-night">
+                    {day.title}
+                  </p>
+                  <p className="text-sm text-night-700 mt-1">{day.route}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </FadeUp>
+      )}
 
       {/* WhatsApp CTA */}
       <FadeUp>

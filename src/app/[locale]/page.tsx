@@ -13,7 +13,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerContainer } from "@/components/motion/StaggerContainer";
 import { ArticleCard } from "@/components/ArticleCard";
-import { DESTINATIONS, getPexelsUrl, CLUSTER_HERO } from "@/lib/media";
+import { DESTINATIONS, CLUSTER_HERO } from "@/lib/media";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -150,7 +150,7 @@ export default async function HomePage({
             return (
               <Link key={dest.key} href={href} className="group relative overflow-hidden rounded-2xl aspect-[4/3] block">
                 <Image
-                  src={getPexelsUrl(dest.imageId, 600, 450)}
+                  src={dest.src}
                   alt={label}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

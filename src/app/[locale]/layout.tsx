@@ -122,10 +122,7 @@ export default async function LocaleLayout({
       dir={isRTL(locale) ? "rtl" : "ltr"}
       className={`${spectral.variable} ${hanken.variable} ${ibmMono.variable}`}
     >
-      <head>
-        <link rel="preconnect" href="https://images.pexels.com" />
-      </head>
-      <body className="min-h-screen bg-sand-100 font-sans text-night antialiased">
+<body className="min-h-screen bg-sand-100 font-sans text-night antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

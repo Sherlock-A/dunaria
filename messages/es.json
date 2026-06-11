@@ -39,7 +39,9 @@
     "included": "Qué incluye este tour",
     "requestDetails": "Pedir información del tour",
     "noResults": "Sin tours disponibles desde este destino.",
-    "priceFrom": "Desde"
+    "priceFrom": "Desde",
+    "itinerary": "Itinerario día a día",
+    "day": "Día"
   },
   "leadCapture": {
     "title": "Solicita información",
